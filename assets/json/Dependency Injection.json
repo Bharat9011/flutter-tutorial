@@ -1,0 +1,52 @@
+{
+    "content1": {
+        "content": "Dependency Injection",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Dependency Injection (DI) is a technique to decouple classes from their dependencies, making code more testable and maintainable.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. GetIt",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "A popular Service Locator for Dart. You register your services at startup and access them anywhere.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "final getIt = GetIt.instance;\n\nvoid setup() {\n  getIt.registerSingleton<AuthService>(AuthService());\n}\n\n// Usage\nfinal authService = getIt<AuthService>();",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Provider / Riverpod",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "These state management libraries also function as DI systems, allowing you to inject dependencies into your widgets or other providers.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "DI is essential for clean architecture. It allows you to easily swap implementations (e.g., MockAuthService for testing).",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

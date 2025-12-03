@@ -1,0 +1,52 @@
+{
+    "content1": {
+        "content": "Performance Debugging",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "If your app feels sluggish, use the Performance Overlay to diagnose the issue.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Performance Overlay",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Shows two graphs: GPU thread and UI thread. If either exceeds 16ms, you'll drop frames.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "MaterialApp(\n  showPerformanceOverlay: true,\n  home: ...\n);",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Common Issues",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Expensive operations in `build()` methods, lack of `const` widgets, and unoptimized images are common culprits.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Test performance on a low-end device to ensure a smooth experience for all users.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

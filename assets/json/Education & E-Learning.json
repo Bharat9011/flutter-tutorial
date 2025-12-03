@@ -1,0 +1,57 @@
+{
+    "content1": {
+        "content": "Education & E-Learning",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "E-learning apps focus on content delivery and progress tracking.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Course Management",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Structure content hierarchically (Courses -> Modules -> Lessons).",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "2. Video Player",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "Use `video_player` or `chewie` for delivering video lectures.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "3. Quizzes",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Implement interactive quizzes with immediate feedback using standard widgets.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "Focus on a clean, distraction-free UI to aid learning.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

@@ -1,0 +1,42 @@
+{
+    "content1": {
+        "content": "Hero Animations",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Hero animations provide a seamless transition between two screens by animating a shared element (like an image) from its position on the source screen to the destination screen.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Implementation",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Wrap the shared element in a `Hero` widget on both screens and give them the same `tag`.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "// Screen 1\nHero(\n  tag: 'profile-image',\n  child: Image.asset('assets/profile.png'),\n);\n\n// Screen 2\nHero(\n  tag: 'profile-image',\n  child: Image.asset('assets/profile.png', width: 300),\n);",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Hero animations are one of the easiest ways to add a premium feel to your app's navigation.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

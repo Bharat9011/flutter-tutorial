@@ -1,0 +1,57 @@
+{
+    "content1": {
+        "content": "Performance Optimization for UI",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Flutter is fast by default, but poor coding practices can lead to jank. Optimization ensures a smooth 60fps experience.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Use const Constructors",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Using `const` allows Flutter to reuse widgets instead of rebuilding them. This is the single most effective optimization.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "2. ListView.builder",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "For long lists, always use `ListView.builder` instead of `ListView` with a list of children. This ensures only visible items are built.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "3. Avoid Unnecessary Rebuilds",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Push state down the tree. Don't rebuild the entire page if only a small button needs to update.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "Profile your app on a real device in Profile mode, not Debug mode.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

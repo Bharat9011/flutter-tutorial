@@ -1,0 +1,52 @@
+{
+    "content1": {
+        "content": "Scroll & Touch Physics",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Flutter allows you to customize how scrolling feels to match the platform or create unique effects.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. BouncingScrollPhysics",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Standard on iOS. The list bounces back when overscrolled.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "ListView(\n  physics: BouncingScrollPhysics(),\n  children: [...],\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. ClampingScrollPhysics",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Standard on Android. The list stops firmly at the edge, showing a glow effect.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "You can also create custom physics to change friction, spring, and gravity simulations.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

@@ -1,0 +1,127 @@
+{
+    "content1": {
+        "content": "Peripheral Devices in Flutter",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Expanding the capabilities of your Flutter app often involves connecting to external hardware. This section covers how to interact with peripheral devices using Bluetooth Low Energy (BLE) and other connection methods.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Bluetooth Low Energy (BLE)",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Bluetooth is the most common way to connect to external sensors, wearables, and IoT devices. The `flutter_blue_plus` package is the standard for BLE interactions in Flutter.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "Setup:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "dependencies:\n  flutter_blue_plus: ^1.31.17",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content7": {
+        "content": "Permissions (Android):",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "<uses-permission android:name=\"android.permission.BLUETOOTH_SCAN\" />\n<uses-permission android:name=\"android.permission.BLUETOOTH_CONNECT\" />\n<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\" />",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content9": {
+        "content": "Permissions (iOS):",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "Add `NSBluetoothAlwaysUsageDescription` and `NSBluetoothPeripheralUsageDescription` to your `Info.plist`.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "Scanning & Connecting:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content12": {
+        "content": "import 'package:flutter_blue_plus/flutter_blue_plus.dart';\n\n// Start scanning\nawait FlutterBluePlus.startScan(timeout: Duration(seconds: 4));\n\n// Listen to scan results\nvar subscription = FlutterBluePlus.scanResults.listen((results) {\n    for (ScanResult r in results) {\n        print('${r.device.remoteId}: \"${r.device.localName}\" found! RSSI: ${r.rssi}');\n    }\n});\n\n// Stop scanning\nawait FlutterBluePlus.stopScan();",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content13": {
+        "content": "Interacting with Services:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content14": {
+        "content": "// Connect to the device\nawait device.connect();\n\n// Discover services\nList<BluetoothService> services = await device.discoverServices();\nservices.forEach((service) async {\n    // Reads all characteristics\n    var characteristics = service.characteristics;\n    for(BluetoothCharacteristic c in characteristics) {\n        List<int> value = await c.read();\n        print(value);\n    }\n});",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content15": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content16": {
+        "content": "2. USB & Serial Connections",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content17": {
+        "content": "For wired connections to custom hardware (like Arduino or industrial sensors), the `usb_serial` package allows communication over USB OTG.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content18": {
+        "content": "Setup:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content19": {
+        "content": "dependencies:\n  usb_serial: ^0.5.2",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content20": {
+        "content": "Usage:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content21": {
+        "content": "import 'package:usb_serial/usb_serial.dart';\n\nList<UsbDevice> devices = await UsbSerial.listDevices();\nif (devices.isNotEmpty) {\n  UsbPort? port = await devices[0].create();\n  bool openResult = await port!.open();\n  if (openResult) {\n    await port.setDTR(true);\n    await port.setRTS(true);\n    port.setPortParameters(115200, UsbPort.DATABITS_8, UsbPort.STOPBITS_1, UsbPort.PARITY_NONE);\n    \n    // Send data\n    await port.write(Uint8List.fromList([0x10, 0x00]));\n    \n    // Listen for data\n    port.inputStream!.listen((Uint8List event) {\n      print(event);\n    });\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content22": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content23": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content24": {
+        "content": "Connecting to peripheral devices expands the horizon of what your Flutter app can do. Whether wirelessly via BLE or wired through USB, Flutter's ecosystem provides robust packages to handle these low-level communications efficiently.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content25": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

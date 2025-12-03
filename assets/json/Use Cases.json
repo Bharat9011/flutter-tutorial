@@ -1,0 +1,57 @@
+{
+    "content1": {
+        "content": "Use Cases",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Notifications serve various purposes depending on the app type.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Engagement",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Social media apps use them to notify users of likes, comments, and messages to bring them back to the app.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "2. Transactional",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "E-commerce and banking apps use them for order updates, payment confirmations, and security alerts.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "3. Reminders",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Productivity and health apps use them to remind users of tasks, events, or habits.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "Identify the key value proposition of your notifications to ensure they are welcome, not annoying.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

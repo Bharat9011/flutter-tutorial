@@ -1,0 +1,62 @@
+{
+    "content1": {
+        "content": "Firebase Cloud Messaging (FCM)",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "FCM provides a reliable and battery-efficient connection between your server and devices that allows you to deliver and receive messages and notifications on iOS, Android, and the web at no cost.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Setup",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Add `firebase_messaging` to your `pubspec.yaml`:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "dependencies:\n  firebase_messaging: ^14.7.10",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Requesting Permissions",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "FirebaseMessaging messaging = FirebaseMessaging.instance;\n\nNotificationSettings settings = await messaging.requestPermission(\n  alert: true,\n  badge: true,\n  sound: true,\n);",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content8": {
+        "content": "3. Handling Messages",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "FirebaseMessaging.onMessage.listen((RemoteMessage message) {\n  print('Got a message whilst in the foreground!');\n  if (message.notification != null) {\n    print('Message also contained a notification: ${message.notification}');\n  }\n});",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content10": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "FCM is the industry standard for push notifications. It supports both notification messages (displayed by system) and data messages (handled by app).",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content12": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

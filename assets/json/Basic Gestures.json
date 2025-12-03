@@ -1,0 +1,57 @@
+{
+    "content1": {
+        "content": "Basic Gestures",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Flutter provides a rich set of gestures to interact with your app. The most common ones are taps, double taps, and long presses.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Tap",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "A tap is a brief touch on the screen. It's the primary way users interact with buttons and list items.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "GestureDetector(\n  onTap: () {\n    print('Tapped!');\n  },\n  child: Container(color: Colors.blue, width: 100, height: 100),\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Double Tap",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Two quick taps in succession. Often used for zooming or liking content.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "GestureDetector(\n  onDoubleTap: () {\n    print('Double Tapped!');\n  },\n  child: Container(color: Colors.red, width: 100, height: 100),\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content9": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "Understanding these basic gestures is the foundation for building interactive apps.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

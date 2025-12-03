@@ -1,0 +1,255 @@
+{
+    "content1": {
+        "content": "🚀 Flutter App Structure: A Complete Beginner's Guide",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "🧠 What is Flutter App Structure & Why It Matters?",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "🎯 Simple Definition:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "The Flutter App Structure is like the layout of your house — it tells Flutter where things go (widgets, screens, assets) and how they work together.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "🏠 Real-Life Analogy:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "Think of building an app like building a house:\n🧱 Widgets :-> Bricks (UI elements)\n🗂️ Folders/files :-> Rooms and cabinets (organized layout)\n🧭 Navigation :-> Hallways (moving between rooms)\n🔧 Main.dart :-> The entry gate (where your app starts)\nWithout structure, everything is chaos.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content38":{
+        "content":"break",
+        "type":"break",
+        "typeOf":"break"
+    },
+    "content7": {
+        "content": "📦 Core Concepts Broken Down",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Key Terminology",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": {
+            "body": {
+                "row1": [
+                    "Term",
+                    "Meaning"
+                ],
+                "row2": [
+                    "`main.dart`",
+                    "The starting point of the app"
+                ],
+                "row3": [
+                    "`MaterialApp`",
+                    "A widget that sets up the app with themes, routes, etc."
+                ],
+                "row4": [
+                    "`Scaffold`",
+                    "A base layout for screens with app bar, body, etc."
+                ],
+                "row5": [
+                    "`Widgets`",
+                    "The building blocks of the UI"
+                ],
+                "row6": [
+                    "`StatelessWidget`",
+                    "UI that doesn't change"
+                ],
+                "row7": [
+                    "`StatefulWidget`",
+                    "UI that changes based on user interaction"
+                ]
+            }
+        },
+        "type": "Table",
+        "typeOf": "Table"
+    },
+    "content39":{
+        "content":"break",
+        "type":"break",
+        "typeOf":"break"
+    },
+    "content10": {
+        "content": "⚙️ Fundamental Principles",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "Everything in Flutter is a widget\nWidgets are nested (tree structure)\nKeep code modular: use separate files and folders for better maintainability",
+        "type": "points",
+        "typeOf": "List"
+    },    "content40":{
+        "content":"break",
+        "type":"break",
+        "typeOf":"break"
+    },
+    "content12": {
+        "content": "🧩 Main Components",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content13": {
+        "content": "lib/\n├── main.dart       --> App entry point\n├── screens/        --> Different screens/pages\n├── widgets/        --> Reusable UI components\n├── models/         --> Data models (if any)\n├── services/       --> Business logic/API calls\n├── assets/         --> Images/fonts (declared in pubspec.yaml)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content41":{
+        "content":"break",
+        "type":"break",
+        "typeOf":"break"
+    },
+    "content14": {
+        "content": "📱 Common Use Cases",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content15": {
+        "content": "Multi-screen navigation\nReusable UI components (buttons, cards)\nOrganized data with models and services\nScalable apps with maintainable structure",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content42":{
+        "content":"break",
+        "type":"break",
+        "typeOf":"break"
+    },
+    "content16": {
+        "content": "🛠️ Practical Step-by-Step Implementation",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content17": {
+        "content": "✅ Prerequisites",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content18": {
+        "content": "Install [Flutter SDK](https://flutter.dev/docs/get-started/install)\nInstall [VS Code](https://code.visualstudio.com/) or Android Studio\nRun `flutter doctor` to verify setup\nCreate project:\nflutter create my_app\ncd my_app",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content43":{
+        "content":"break",
+        "type":"break",
+        "typeOf":"break"
+    },
+    "content19": {
+        "content": "📋 Folder Structure Setup",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content20": {
+        "content": "Update your `lib/` folder:\n\nlib/\n├── main.dart\n├── screens/\n│   └── home_screen.dart\n├── widgets/\n│   └── custom_button.dart",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content21": {
+        "content": "📂 main.dart",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content22": {
+        "content": "import 'package:flutter/material.dart';\nimport 'screens/home_screen.dart';\n\nvoid main() {\n  runApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      title: 'My First App',\n      theme: ThemeData(primarySwatch: Colors.blue),\n      home: HomeScreen(),\n    );\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content23": {
+        "content": "📂 screens/home_screen.dart",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content24": {
+        "content": "import 'package:flutter/material.dart';\nimport '../widgets/custom_button.dart';\n\nclass HomeScreen extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(\n        title: Text(\"Home Screen\"),\n      ),\n      body: Center(\n        child: CustomButton(text: \"Click Me!\", onPressed: () {\n          ScaffoldMessenger.of(context).showSnackBar(SnackBar(\n            content: Text(\"Hello from Custom Button!\"),\n          ));\n        }),\n      ),\n    );\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content25": {
+        "content": "📂 widgets/custom_button.dart",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content26": {
+        "content": "import 'package:flutter/material.dart';\n\nclass CustomButton extends StatelessWidget {\n  final String text;\n  final VoidCallback onPressed;\n\n  const CustomButton({required this.text, required this.onPressed});\n\n  @override\n  Widget build(BuildContext context) {\n    return ElevatedButton(\n      onPressed: onPressed,\n      child: Text(text),\n    );\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content44":{
+        "content":"break",
+        "type":"break",
+        "typeOf":"break"
+    },
+    "content27": {
+        "content": "🧯 Common Pitfalls & How to Avoid Them",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content28": {
+        "content": {
+            "body": {
+                "row1": [
+                    "Mistake",
+                    "Why It Happens",
+                    "Solution"
+                ],
+                "row2": [
+                    "Putting all code in `main.dart`",
+                    "Beginner convenience",
+                    "Split code into `screens/` and `widgets/` folders"
+                ],
+                "row3": [
+                    "Forgetting to import files",
+                    "Leads to errors like \"undefined class\"",
+                    "Use `import 'path/to/file.dart';`"
+                ],
+                "row4": [
+                    "Using StatefulWidget when not needed",
+                    "Adds unnecessary complexity",
+                    "Start with `StatelessWidget`"
+                ],
+                "row5": [
+                    "Ignoring null safety",
+                    "May cause crashes",
+                    "Use `required`, `?`, `late` carefully"
+                ]
+            }
+        },
+        "type": "Table",
+        "typeOf": "Table"
+    },
+    "content45":{
+        "content":"break",
+        "type":"break",
+        "typeOf":"break"
+    },
+    "content29": {
+        "content": "✅ Key Takeaways",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content30": {
+        "content": "A well-structured app = easier to scale and maintain\nUse folders to separate responsibilities (screens, widgets, etc.)\nUnderstand the widget tree and navigation flow\nPractice reusing widgets instead of repeating code",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content37":{
+        "content":"break",
+        "type":"break",
+        "typeOf":"break"
+    }
+}

@@ -1,0 +1,230 @@
+{
+    "content1": {
+        "content": "Here’s a comprehensive beginner’s guide on Dart Functions, designed with simplicity, real-world analogies, examples, and best practices. 🌟",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "🧠 1. What is a Function in Dart?",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "💡 Simple Definition:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "A function is a reusable block of code that performs a specific task. It helps you avoid repeating code and makes your program organized.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "🍕 Real-World Analogy:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "Imagine a pizza shop:\nYou call the shop and say,\"Make me a pepperoni pizza.\"\n* The shop has a **predefined method (function)** to make it.\n* You just call the function, and it gives you the result.\nIn programming, you define a function once, and call it wherever needed.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content33": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content7": {
+        "content": "🛠️ 2. Structure of a Dart Function",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "returnType functionName(parameters) {\n  // code to execute\n  return result;\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content9": {
+        "content": "`returnType`: What the function gives back (e.g., `int`, `String`, `void` if nothing)\n`functionName`: The name you give to the function\n`parameters`: Optional inputs (like ingredients!)\n`return`: The result (if any)",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content34": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content10": {
+        "content": "✨ 3. Step-by-Step Guide to Using Functions",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "Create a function to add two numbers\nCall the function\nPrint the result",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content35": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content12": {
+        "content": "💻 Complete Dart Code with Explanations",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content13": {
+        "content": "// Step 1: Define the function\nint addNumbers(int a, int b) {\n  int sum = a + b;// calculate sum\n  return sum;// return result\n}\n\nvoid main() {\n  // Step 2: Call the function\n  int result = addNumbers(5, 3);\n\n  // Step 3: Print the result\n  print(\"The sum is: $result\");\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content36": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content14": {
+        "content": "📝 Explanation:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content15": {
+        "content": "`int addNumbers(int a, int b)`: Defines a function that takes two integers and returns an integer.\n`return sum;`: Sends the result back to where the function was called.\n`main()` is Dart's starting point — just like a house's main door.\n`print()` is used to show the result.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content37": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content16": {
+        "content": "🍭Different Types of Functions",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content17": {
+        "content": "✅ Function with No Return & No Parameters",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content18": {
+        "content": "\nvoid sayHello() {\n  print(\"Hello, Dart!\");\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content19": {
+        "content": "✅ Function with Parameters but No Return",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content20": {
+        "content": "void greetUser(String name) {\n  print(\"Hi, $name!\");\n}\n",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content21": {
+        "content": "✅ Function with Return but No Parameters",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content22": {
+        "content": "String getGreeting() {\n  return \"Good morning!\";\n}\n",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content23": {
+        "content": "✅ Arrow Function (Short Form)",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content24": {
+        "content": "int square(int x) => x * x;   // returns x*x",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content38": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content25": {
+        "content": "🚨Common Mistakes to Avoid",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content26": {
+        "content": {
+            "body": {
+                "row1": [
+                    "Mistake ",
+                    " Problem ",
+                    " Solution"
+                ],
+                "row2": [
+                    "❌ Forgetting `return` ",
+                    " Function doesn’t return anything ",
+                    " Use `return` properly"
+                ],
+                "row3": [
+                    "❌ Wrong data type ",
+                    " Mismatch between return and returnType ",
+                    " Match types"
+                ],
+                "row4": [
+                    "❌ Not calling the function ",
+                    " Code doesn't execute ",
+                    " Use functionName() in `main()`"
+                ],
+                "row5": [
+                    "❌ Forgetting parentheses ",
+                    " Dart thinks it's a variable ",
+                    " Always include `()` to call it"
+                ]
+            }
+        },
+        "type": "Table",
+        "typeOf": "Table"
+    },
+    "content39": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content27": {
+        "content": "✅ 7. Best Practices",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content28": {
+        "content": "💬 Use meaningful function names (e.g., `calculateTotal` not `doStuff`)\n🚪 Use `void` when no return is needed\n🎯 Keep functions focused on one task\n♻️ Reuse functions to reduce duplicate code",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content29": {
+        "content": "📌 8. Key Takeaways",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content30": {
+        "content": "Functions help organize and reuse code.\nYou define a function once and call it whenever needed.\nDart supports multiple function styles: normal, parameterized, return-type, and arrow functions.\nAvoid mistakes by using correct syntax, types, and calling functions properly.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content31": {
+        "content": "Would you like a small quiz or practice questions to test your understanding of Dart functions?",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content32": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

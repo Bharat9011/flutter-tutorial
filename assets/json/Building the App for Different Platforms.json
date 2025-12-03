@@ -1,0 +1,57 @@
+{
+    "content1": {
+        "content": "Building the App for Different Platforms",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Flutter allows you to build for multiple platforms from a single codebase using simple commands.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Android",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Build an App Bundle (AAB) for the Play Store.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "flutter build appbundle",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. iOS",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Build an IPA for the App Store. Requires a Mac and Xcode.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "flutter build ipa",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content9": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "Always test the release build locally (`flutter run --release`) before uploading.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

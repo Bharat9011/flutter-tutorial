@@ -1,0 +1,232 @@
+{
+  "content1" : {
+    "content": "SQLite for Local Database Storage in Flutter",
+    "type": "heading",
+    "typeOf": "Text"
+  },
+  "content2": {
+    "content": "When your app's data storage needs go beyond simple key-value pairs, you need a true database. For local, structured data storage on a mobile device, SQLite is the industry standard. It provides a lightweight, server-less, and self-contained SQL database engine.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content3": {
+    "content": "This guide will teach you how to integrate and use an SQLite database in your Flutter application using the popular sqflite package.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content4": {
+    "content": "When to Use SQLite?",
+    "type": "sub-heading",
+    "typeOf": "text"
+  },
+  "content5": {
+    "content": "Structured Data: When you need to store complex objects with relationships, like users, products, or transactions.\nLarge Datasets: When you need to efficiently store, query, and manage large amounts of data.\nOffline First: For apps that need to work seamlessly offline by storing data locally and syncing with a server later.",
+    "type" : "points",
+    "typeOf": "List"
+  },
+  "content6": {
+    "content": "It's a step up from shared_preferences, which is only suitable for simple, non-critical data.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content10":{
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content7": {
+    "content": "Step 1: Add Dependencies",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content9": {
+    "content": "You'll need two packages to get started:",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content11": {
+    "content": "sqflite: The primary plugin for interacting with SQLite databases.\npath: A plugin to help locate the correct, platform-specific path to store the database file.",
+    "type": "points",
+    "typeOf": "List"
+  },
+  "content12": {
+    "content": "Add them to your pubspec.yaml:",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content13": {
+    "content": "dependencies:\n  flutter:\n    sdk: flutter\n  sqflite: ^2.3.3 # Use the latest version\n  path: ^1.9.0\n",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content14": {
+    "content": "Run flutter pub get in your terminal to install them.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content15": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content16": {
+    "content": "Step 2: Define a Data Model",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content17": {
+    "content": "Before interacting with the database, it's crucial to have a data model for your objects. This class should include a method to convert the object into a Map (for writing to the database) and a way to create an object from a Map (for reading from the database).",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content18": {
+    "content": "Let's create a model for a Dog.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content19": {
+    "content": "// file: models/dog.dart\nclass Dog {\n  final int id;\n  final String name;\n  final int age;\n\n  const Dog({\n    required this.id,\n    required this.name,\n    required this.age,\n  });\n\n  // Convert a Dog into a Map. The keys must correspond to the names of the\n  // columns in the database.\n  Map<String, dynamic> toMap() {\n    return {\n      'id': id,\n      'name': name,\n      'age': age,\n    };\n  }\n\n  // A factory constructor or static method to create a Dog from a Map.\n  factory Dog.fromMap(Map<String, dynamic> map) {\n    return Dog(\n      id: map['id'] as int,\n      name: map['name'] as String,\n      age: map['age'] as int,\n    );\n  }\n\n  @override\n  String toString() {\n    return 'Dog{id: $id, name: $name, age: $age}';\n  }\n}\n",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content20": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content21": {
+    "content": "Step 3: Open the Database",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content22": {
+    "content": "Now, let's open a connection to the database. It's a best practice to encapsulate all your database operations in a single helper class.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content23": {
+    "content": "// file: services/database_helper.dart\nimport 'package:sqflite/sqflite.dart';\nimport 'package:path/path.dart';\nimport '../models/dog.dart';\n\nclass DatabaseHelper {\n  // Create a singleton instance\n  static final DatabaseHelper _instance = DatabaseHelper._internal();\n  factory DatabaseHelper() => _instance;\n  DatabaseHelper._internal();\n\n  static Database? _database;\n\n  Future<Database> get database async {\n    if (_database != null) return _database!;\n    _database = await _initDatabase();\n    return _database!;\n  }\n\n  Future<Database> _initDatabase() async {\n    // Get the directory path for both Android and iOS to store the database.\n    String path = join(await getDatabasesPath(), 'doggie_database.db');\n\n    // Open the database and create the 'dogs' table if it doesn't exist.\n    return await openDatabase(\n      path,\n      version: 1,\n      onCreate: (db, version) {\n        return db.execute(\n          'CREATE TABLE dogs(id INTEGER PRIMARY KEY, name TEXT, age INTEGER)',\n        );\n      },\n    );\n  }\n  \n  // All CRUD operations will go here\n}\n",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content24": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content25": {
+    "content": "Step 4: Implement CRUD Operations",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content26": {
+    "content": "CRUD stands for Create, Read, Update, and Delete. Let's add methods for these operations to our DatabaseHelper class.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content27": {
+    "content": "Create (Insert)",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content28": {
+    "content": "This method inserts a new dog into the database.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content29": {
+    "content": "// In DatabaseHelper class\nFuture<void> insertDog(Dog dog) async {\n  final db = await database;\n  await db.insert(\n    'dogs',\n    dog.toMap(),\n    conflictAlgorithm: ConflictAlgorithm.replace, // Handles conflicts by replacing the old data.\n  );\n}\n",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content30": {
+    "content": "Read (Query)",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content31": {
+    "content": "This method retrieves all dogs from the database.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content32": {
+    "content": "// In DatabaseHelper class\nFuture<List<Dog>> getDogs() async {\n  final db = await database;\n  final List<Map<String, dynamic>> maps = await db.query('dogs');\n\n  // Convert the List<Map<String, dynamic>> into a List<Dog>.\n  return List.generate(maps.length, (i) {\n    return Dog.fromMap(maps[i]);\n  });\n}\n",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content33": {
+    "content": "Update",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content34": {
+    "content": "This method updates an existing dog's data.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content35": {
+    "content": "// In DatabaseHelper class\nFuture<void> updateDog(Dog dog) async {\n  final db = await database;\n  await db.update(\n    'dogs',\n    dog.toMap(),\n    where: 'id = ?',\n    whereArgs: [dog.id],\n  );\n}\n",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content36": {
+    "content": "Delete",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content37": {
+    "content": "This method removes a dog from the database using its id.",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content38": {
+    "content": "// In DatabaseHelper class\nFuture<void> deleteDog(int id) async {\n  final db = await database;\n  await db.delete(\n    'dogs',\n    where: 'id = ?',\n    whereArgs: [id],\n  );\n}\n",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content39": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content40": {
+    "content": "Step 5: Use the Database in Your UI",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content41": {
+    "content": "Now you can use your DatabaseHelper class in your widgets to interact with the database.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content42": {
+    "content": "Here’s a conceptual example of how you might use these methods in a StatefulWidget:",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content43": {
+    "content": "class DogListScreen extends StatefulWidget {\n  const DogListScreen({super.key});\n\n  @override\n  State<DogListScreen> createState() => _DogListScreenState();\n}\n\nclass _DogListScreenState extends State<DogListScreen> {\n  late Future<List<Dog>> _dogsFuture;\n\n  @override\n  void initState() {\n    super.initState();\n    _refreshDogList();\n  }\n\n  void _refreshDogList() {\n    setState(() {\n      _dogsFuture = DatabaseHelper().getDogs();\n    });\n  }\n\n  void _addDog() async {\n    // In a real app, you'd get this data from a form.\n    final newDog = Dog(id: DateTime.now().millisecondsSinceEpoch, name: 'Fido', age: 3);\n    await DatabaseHelper().insertDog(newDog);\n    _refreshDogList();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: const Text('My Dogs')),\n      body: FutureBuilder<List<Dog>>(\n        future: _dogsFuture,\n        builder: (context, snapshot) {\n          if (snapshot.connectionState == ConnectionState.waiting) {\n            return const Center(child: CircularProgressIndicator());\n          } else if (snapshot.hasError) {\n            return Center(child: Text('Error: ${snapshot.error}'));\n          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {\n            return const Center(child: Text('No dogs found.'));\n          } else {\n            final dogs = snapshot.data!;\n            return ListView.builder(\n              itemCount: dogs.length,\n              itemBuilder: (context, index) {\n                final dog = dogs[index];\n                return ListTile(\n                  title: Text(dog.name),\n                  subtitle: Text('Age: ${dog.age}'),\n                  trailing: IconButton(\n                    icon: const Icon(Icons.delete),\n                    onPressed: () async {\n                      await DatabaseHelper().deleteDog(dog.id);\n                      _refreshDogList();\n                    },\n                  ),\n                );\n              },\n            );\n          }\n        },\n      ),\n      floatingActionButton: FloatingActionButton(\n        onPressed: _addDog,\n        child: const Icon(Icons.add),\n      ),\n    );\n  }\n}\n",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content44": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content45": {
+    "content": "Conclusion",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content46": {
+    "content": "Using SQLite with the sqflite package provides a robust and efficient way to handle local, structured data storage in Flutter. By creating a data model and a dedicated helper class, you can keep your database logic organized and separate from your UI, leading to a cleaner and more maintainable application architecture.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content47": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  }
+}

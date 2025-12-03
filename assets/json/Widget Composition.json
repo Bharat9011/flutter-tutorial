@@ -1,0 +1,147 @@
+{
+    "content1": {
+        "content": "Flutter: Mastering Widget Composition",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "In Flutter, you don't just build UIs; you compose them. Widget composition is a core principle that involves combining smaller, simpler widgets to create more complex and sophisticated user interfaces.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "What is Widget Composition?",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "At its simplest, widget composition means that a widget can be made up of other widgets. A Row widget, for example, doesn't draw a row itself; it arranges a list of child widgets horizontally.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "Think of it as a tree structure:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "MyScreen (Your custom widget)\n└── Scaffold\n    ├── AppBar\n    │   └── Text(\"My App Title\")\n    └── Body\n        └── Center\n            └── Column\n                ├── MyCustomButton(label: \"Click Me\")\n                │   └── ElevatedButton\n                │       └── Text(\"Click Me\")\n                └── MyCustomCard\n                    └── Card\n                        └── Column\n                            ├── Image.network(...)\n                            └── Text(\"Some description\")",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content23": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content7": {
+        "content": "Why is Composition Favored in Flutter?",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Flexibility: Composition allows for greater flexibility.\nReusability: You can create small, focused widgets that do one thing well.\nReadability & Maintainability: Well-composed widget trees are often easier to read.\nTestability: Smaller, composed widgets are easier to test individually.\nPerformance: Flutter is optimized for deep widget trees.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content24": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content9": {
+        "content": "How to Compose Widgets: Practical Examples",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "1. Nesting Widgets:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "import 'package:flutter/material.dart';\n\nclass UserProfileCard extends StatelessWidget {\n  final String userName;\n  final String userAvatarUrl;\n  final String userBio;\n\n  const UserProfileCard({\n    Key? key,\n    required this.userName,\n    required this.userAvatarUrl,\n    required this.userBio,\n  }) : super(key: key);\n\n  @override\n  Widget build(BuildContext context) {\n    return Card(\n      elevation: 4.0,\n      margin: EdgeInsets.all(16.0),\n      child: Padding(\n        padding: EdgeInsets.all(16.0),\n        child: Column(\n          mainAxisSize: MainAxisSize.min,\n          children: <Widget>[\n            CircleAvatar(\n              radius: 50,\n              backgroundImage: NetworkImage(userAvatarUrl),\n            ),\n            SizedBox(height: 16.0),\n            Text(\n              userName,\n              style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),\n            ),\n            SizedBox(height: 8.0),\n            Text(\n              userBio,\n              textAlign: TextAlign.center,\n              style: TextStyle(fontSize: 16),\n            ),\n          ],\n        ),\n      ),\n    );\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content25": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content12": {
+        "content": "2. Extracting Widgets:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content13": {
+        "content": "Before Extraction: A messy build method with everything in one place.\nAfter Extraction: Cleaner code with UserDetailsSection and ActionButtons as separate widgets.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content26": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content14": {
+        "content": "3. Passing Widgets as Parameters:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content15": {
+        "content": "import 'package:flutter/material.dart';\n\nclass AppSection extends StatelessWidget {\n  final String title;\n  final Widget content;\n  final Color titleBackgroundColor;\n\n  const AppSection({\n    Key? key,\n    required this.title,\n    required this.content,\n    this.titleBackgroundColor = Colors.grey,\n  }) : super(key: key);\n\n  @override\n  Widget build(BuildContext context) {\n    return Container(\n      margin: EdgeInsets.all(8.0),\n      decoration: BoxDecoration(\n        border: Border.all(color: Colors.grey.shade400),\n        borderRadius: BorderRadius.circular(8.0),\n      ),\n      child: Column(\n        crossAxisAlignment: CrossAxisAlignment.stretch,\n        children: [\n          Container(\n            padding: EdgeInsets.all(12.0),\n            decoration: BoxDecoration(\n              color: titleBackgroundColor,\n              borderRadius: BorderRadius.only(\n                topLeft: Radius.circular(8.0),\n                topRight: Radius.circular(8.0)),\n            child: Text(\n              title,\n              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold, color: Colors.white),\n            ),\n          ),\n          Padding(\n            padding: EdgeInsets.all(12.0),\n            child: content,\n          ),\n        ],\n      ),\n    );\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content27": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content16": {
+        "content": "Analogy: Building with Prefabricated Parts",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content17": {
+        "content": "Think of building a house with prefabricated components:\n- Pre-built window unit (Text widget)\n- Pre-built door assembly (ElevatedButton)\n- Pre-fabricated wall sections (Container)\nAssemble these parts to construct your screen (house)",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content28": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content18": {
+        "content": "Best Practices for Widget Composition",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content19": {
+        "content": "Keep Widgets Small and Focused\nPrefer const Constructors\nExtract Logically\nManage State Appropriately\nDon't Overdo It",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content29": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content20": {
+        "content": "Conclusion",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content21": {
+        "content": "Widget composition is a cornerstone of Flutter development. By breaking down your UI into smaller, manageable, and reusable widgets, you can build complex applications that are easier to develop, understand, test, and maintain.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content22": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

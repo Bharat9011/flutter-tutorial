@@ -1,0 +1,234 @@
+{
+    "content2": {
+        "content": "🧠 What Are Collections in Dart?",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "💡 Simple Definition:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Collections are data structures that let you store and manage multiple values in one place. Dart offers three main types:\nList – ordered group of items\nSet – unordered group with unique items\nMap – key-value pairs (like a dictionary)",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content5": {
+        "content": "🛒 Real-World Analogy:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": {
+            "body": {
+                "row1": [
+                    "Type ",
+                    "Analogy"
+                ],
+                "row2": [
+                    "List ",
+                    "A shopping list – items are ordered, can repeat"
+                ],
+                "row3": [
+                    "Set  ",
+                    "A guest list – names can't be repeated"
+                ],
+                "row4": [
+                    "Map  ",
+                    "A phonebook – names (keys) mapped to numbers (values)"
+                ]
+            }
+        },
+        "type": "Table",
+        "typeOf": "Table"
+    },
+    "content32": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content7": {
+        "content": "🧱 2. Why Use Collections?",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Store multiple items\nOrganize data efficiently\nLoop over data easily\nUse built-in methods to filter, add, or remove elements",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content33": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content9": {
+        "content": "🛠️ Step-by-Step Implementation Guide",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "We'll go through:\n1. Creating and using a ist\n2. Understanding Set\n3. Working with Map",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content34": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content11": {
+        "content": "💻 Dart Code Examples with Explanation",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content12": {
+        "content": "📋List – Ordered Collection",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content13": {
+        "content": "void main() {\n  // Create a list of fruits\n  List<String> fruits = ['Apple', 'Banana', 'Mango'];\n\n  // Add an item\n  fruits.add('Orange');\n\n  // Access items\n  print(fruits[0]); // Apple\n\n  // Loop through the list\n  for (String fruit in fruits) {\n    print(fruit);\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content35": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content14": {
+        "content": "🧠 What's happening?",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content15": {
+        "content": "`List<String>` stores strings\n`add()` adds an item\n`fruits[0]` gets the first item (0-based index)",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content36": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content16": {
+        "content": "🧾 Set – Unique Collection",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content17": {
+        "content": "void main() {\n  // Create a Set of countries\n  Set<String> countries = {'India', 'USA', 'UK'};\n\n  // Try to add duplicate\n  countries.add('USA');\n\n  print(countries); // Still has only one 'USA'\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content18": {
+        "content": "🎯 Why Set?",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content19": {
+        "content": "No duplicates allowed\nGood when uniqueness matters (e.g., user IDs, tags)",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content37": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content20": {
+        "content": "📖 Map – Key-Value Pairs",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content21": {
+        "content": "void main() {\n  // Map of student and marks\n  Map<String, int> studentMarks = {\n    'Alice': 85,\n    'Bob': 92,\n    'Charlie': 78\n  };\n\n  // Access value\n  print(studentMarks['Bob']); // 92\n\n  // Add new entry\n  studentMarks['David'] = 88;\n\n  // Loop through map\n  studentMarks.forEach((key, value) {\n    print('$key scored $value');\n  });\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content22": {
+        "content": "🧠 Use cases:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content23": {
+        "content": "Key-value lookups (like dictionary)\nQuick access by key",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content39": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content24": {
+        "content": "🚨 Common Mistakes to Avoid",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content25": {
+        "content": {
+            "body": {
+                "row1": [
+                    "Mistake ",
+                    " Problem ",
+                    " Solution"
+                ],
+                "row2": [
+                    "❌ Accessing non-existent index ",
+                    " List gives error ",
+                    " Check `.length` before accessing"
+                ],
+                "row3": [
+                    "❌ Duplicates in Set ",
+                    " They are auto-removed ",
+                    " It's a feature, not a bug"
+                ],
+                "row4": [
+                    "❌ Null values in Map ",
+                    " Causes errors in logic ",
+                    " Use `containsKey()` to check before using"
+                ]
+            }
+        },
+        "type": "Table",
+        "typeOf": "Table"
+    },
+    "content40": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content26": {
+        "content": "✅ Best Practices",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content27": {
+        "content": "📏 Always check the collection size before accessing\n🧪 Use `contains()` and `containsKey()` for checks\n* 🔁 Use `forEach()` or `for-in` to loop through items\n🧼 Avoid modifying collections while looping",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content41": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content28": {
+        "content": "📌 Key Takeaways",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content29": {
+        "content": "`List`: Ordered, allows duplicates → like a to-do list\n`Set`: Unordered, no duplicates → like a unique guest list\n`Map`: Key-value pairs → like a contact book\n* Dart provides methods like `.add()`, `.remove()`, `.contains()`, `.forEach()` to manage collections\nChoose the right collection based on your data's nature",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content31": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

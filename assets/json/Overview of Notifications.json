@@ -1,0 +1,47 @@
+{
+    "content1": {
+        "content": "Overview of Notifications",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Notifications are messages that appear outside of your app's UI to provide reminders, communication from other people, or other timely information from your app.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Importance",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "They are a key channel for user engagement and retention, allowing you to bring users back to your app.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "2. Types of Interaction",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "Users can tap a notification to open the app or perform an action directly from the notification (e.g., reply to a message).",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Notifications bridge the gap between your app and the user when they are not actively using it.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

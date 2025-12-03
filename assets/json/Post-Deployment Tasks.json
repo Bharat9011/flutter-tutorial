@@ -1,0 +1,47 @@
+{
+    "content1": {
+        "content": "Post-Deployment Tasks",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "The work isn't done after release. You need to monitor and maintain your app.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Monitoring",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Use tools like Firebase Crashlytics and Analytics to track crashes and user behavior.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "2. Updates",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "Regularly release updates to fix bugs, add features, and keep libraries up to date.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Listen to user feedback (reviews, support emails) to guide your roadmap.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

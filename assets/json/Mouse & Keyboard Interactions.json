@@ -1,0 +1,52 @@
+{
+    "content1": {
+        "content": "Mouse & Keyboard Interactions",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "For desktop and web, you need to handle mouse hovers and keyboard shortcuts.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. MouseRegion",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Detects when the mouse enters, exits, or hovers over a widget.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "MouseRegion(\n  onEnter: (_) => setState(() => _hovering = true),\n  onExit: (_) => setState(() => _hovering = false),\n  cursor: SystemMouseCursors.click,\n  child: Container(color: _hovering ? Colors.blue : Colors.grey),\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Shortcuts & Actions",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Map key combinations to intents and actions.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Proper mouse and keyboard support is essential for a good desktop experience.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

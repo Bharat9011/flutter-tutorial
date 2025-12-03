@@ -1,0 +1,72 @@
+{
+    "content1": {
+        "content": "Cloud Firestore",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Cloud Firestore is a flexible, scalable NoSQL database for mobile, web, and server development from Firebase and Google Cloud.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Setup",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Add `cloud_firestore` to your `pubspec.yaml`:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "dependencies:\n  cloud_firestore: ^4.14.0",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Data Model",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Firestore stores data in Documents, which are organized into Collections. Documents contain fields mapping to values.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "3. Adding Data",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "import 'package:cloud_firestore/cloud_firestore.dart';\n\nFirebaseFirestore db = FirebaseFirestore.instance;\n\nfinal user = <String, dynamic>{\n  \"first\": \"Ada\",\n  \"last\": \"Lovelace\",\n  \"born\": 1815\n};\n\nawait db.collection(\"users\").add(user).then((DocumentReference doc) =>\n    print('DocumentSnapshot added with ID: ${doc.id}'));",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content10": {
+        "content": "4. Reading Data",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "await db.collection(\"users\").get().then((event) {\n  for (var doc in event.docs) {\n    print(\"${doc.id} => ${doc.data()}\");\n  }\n});",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content12": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content13": {
+        "content": "Firestore offers more advanced querying capabilities than Realtime Database and scales automatically.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content14": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

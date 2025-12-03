@@ -1,0 +1,157 @@
+{
+    "content1": {
+        "content": "Flutter: InheritedWidget & Accessing Data via Context",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "In Flutter, widgets are built by composing other widgets, forming a tree structure. Often, you'll find that multiple widgets deep within this tree need access to the same piece of data or service that's available higher up.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "What is InheritedWidget?",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "InheritedWidget is a special type of widget in Flutter designed to efficiently propagate information down the widget tree. When a widget that inherits from InheritedWidget changes, Flutter automatically rebuilds only the widgets in the subtree that depend on that data.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "Key Characteristics & Purpose:\nEfficient Data Propagation\nDependency Tracking\nBase for Other Widgets",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content24": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content6": {
+        "content": "How to Create a Custom InheritedWidget",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "1. Subclass InheritedWidget\n2. Store Data\n3. Create a constructor\n4. Implement updateShouldNotify\n5. Provide a Static of Method (Convention)",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content25": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content8": {
+        "content": "Example: MyAppData InheritedWidget",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "import 'package:flutter/material.dart';\n\nclass MyAppData extends InheritedWidget {\n  final String userName;\n  final Color themeColor;\n\n  const MyAppData({\n    Key? key,\n    required this.userName,\n    required this.themeColor,\n    required Widget child,\n  }) : super(key: key, child: child);\n\n  @override\n  bool updateShouldNotify(covariant MyAppData oldWidget) {\n    return oldWidget.userName != userName || oldWidget.themeColor != themeColor;\n  }\n\n  static MyAppData? of(BuildContext context) {\n    return context.dependOnInheritedWidgetOfExactType<MyAppData>();\n  }\n}\n\nclass MyAppRoot extends StatefulWidget {\n  const MyAppRoot({Key? key}) : super(key: key);\n\n  @override\n  _MyAppRootState createState() => _MyAppRootState();\n}\n\nclass _MyAppRootState extends State<MyAppRoot> {\n  String _currentUser = \"Alice\";\n  Color _currentColor = Colors.blue;\n\n  void _changeUser() {\n    setState(() {\n      _currentUser = _currentUser == \"Alice\" ? \"Bob\" : \"Alice\";\n      _currentColor = _currentColor == Colors.blue ? Colors.green : Colors.blue;\n    });\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return MyAppData(\n      userName: _currentUser,\n      themeColor: _currentColor,\n      child: MaterialApp(\n        home: Scaffold(\n          appBar: AppBar(title: Text('InheritedWidget Demo')),\n          body: Column(\n            children: [\n              UserProfile(),\n              SizedBox(height: 20),\n              ElevatedButton(\n                onPressed: _changeUser,\n                child: Text('Change User & Color'),\n              ),\n            ],\n          ),\n        ),\n      ),\n    );\n  }\n}\n\nclass UserProfile extends StatelessWidget {\n  const UserProfile({Key? key}) : super(key: key);\n\n  @override\n  Widget build(BuildContext context) {\n    final appData = MyAppData.of(context);\n\n    if (appData == null) {\n      return Center(child: Text(\"MyAppData not found!\"));\n    }\n\n    return Container(\n      padding: EdgeInsets.all(16.0),\n      color: appData.themeColor.withOpacity(0.2),\n      child: Center(\n        child: Text(\n          'Hello, ${appData.userName}!',\n          style: TextStyle(fontSize: 24, color: appData.themeColor),\n        ),\n      ),\n    );\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content26": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content10": {
+        "content": "Understanding BuildContext",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "BuildContext is a crucial concept in Flutter. It's not the widget itself but a handle to the location of a widget in the widget tree.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content12": {
+        "content": "BuildContext provides several capabilities:\nLocating Ancestor Widgets\nAccessing Theme and MediaQuery Data\nNavigation",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content27": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content13": {
+        "content": "Accessing InheritedWidget via BuildContext",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content14": {
+        "content": "Primary method:\ncontext.dependOnInheritedWidgetOfExactType<T>()\nAlternative method:\ncontext.findAncestorWidgetOfExactType<T>()",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content28": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content15": {
+        "content": "The updateShouldNotify Method",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content16": {
+        "content": "bool updateShouldNotify(covariant YourInheritedWidget oldWidget)\n\nReturn true if the data has changed in a way that requires dependent widgets to rebuild.\nReturn false if the data is the same, to prevent unnecessary rebuilds.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content29": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content17": {
+        "content": "When to Use InheritedWidget",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content18": {
+        "content": "Theming\nMedia Queries\nScoped Model / Simple State Management\nDependency Injection\nAs a Building Block",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content30": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content19": {
+        "content": "Best Practices",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content20": {
+        "content": "Static of Method\nImplement updateShouldNotify Carefully\nKeep Data Immutable\nScope Correctly\nConsider InheritedModel for Granular Updates",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "conten31": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content21": {
+        "content": "Conclusion",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content22": {
+        "content": "InheritedWidget is a powerful and efficient mechanism in Flutter for making data accessible throughout a widget subtree. By understanding how it works with BuildContext and how to correctly implement updateShouldNotify, you can manage shared state and dependencies in a clean, performant, and Flutter-idiomatic way.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content23": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

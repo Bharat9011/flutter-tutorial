@@ -1,0 +1,52 @@
+{
+    "content1": {
+        "content": "Pointer Events & Hit Testing",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Pointer events are the raw data (touch, mouse, stylus) that Flutter processes into gestures.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Listener Widget",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Use `Listener` to get raw pointer data like `onPointerDown`, `onPointerMove`, and `onPointerUp`.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "Listener(\n  onPointerDown: (PointerDownEvent event) {\n    print('Position: \${event.position}');\n  },\n  child: Container(color: Colors.orange, width: 100, height: 100),\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Hit Testing",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Determines which widgets receive events. `IgnorePointer` and `AbsorbPointer` can control this.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Working with raw pointers is necessary for things like drawing apps or custom game controls.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

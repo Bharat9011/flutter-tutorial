@@ -1,0 +1,52 @@
+{
+    "content1": {
+        "content": "Flutter Testing Tools & Frameworks",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Flutter comes with a robust testing framework built-in, but third-party packages can enhance it.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. flutter_test",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "The core package for writing unit and widget tests. Provides `test`, `expect`, and `WidgetTester`.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "2. Mockito",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "A popular mocking framework. Essential for isolating units by mocking dependencies (e.g., API clients).",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "@GenerateMocks([Cat])\nvoid main() {\n  test('Cat sound', () {\n    var cat = MockCat();\n    when(cat.sound()).thenReturn('Meow');\n    expect(cat.sound(), 'Meow');\n  });\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content8": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Mastering these tools allows you to write maintainable and reliable tests.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

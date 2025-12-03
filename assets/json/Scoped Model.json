@@ -1,0 +1,177 @@
+{
+  "content1": {
+    "content": "A Guide to the Scoped Model Pattern in Flutter",
+    "type": "heading",
+    "typeOf": "Text"
+  },
+  "content2": {
+    "content": "State management is a crucial aspect of building robust and maintainable Flutter applications. While there are many advanced solutions available, understanding the fundamentals is key. The Scoped Model pattern provides a straightforward way to manage and share application state. This article will walk you through the core concepts of Scoped Model and demonstrate how to implement it in your Flutter projects.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content3": {
+    "content": "Core Components of Scoped Model",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content4": {
+    "content": "The scoped_model library is built around three main classes:",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content5": {
+    "content": "Model: This is the heart of the pattern. You'll extend this class to create your own models, which will hold your application's data and business logic. The Model class implements the Listenable interface, allowing other parts of your app to subscribe to its changes. A key method in this class is notifyListeners(), which you'll call whenever the model's data changes to trigger a rebuild of the UI.\nScopedModel<T extends Model>: This widget is used to provide a Model to its descendants. You wrap a part of your widget tree with ScopedModel, and any widget within that scope can access the provided model.\nScopedModelDescendant<T extends Model>: This widget is used to find and listen to a ScopedModel in the widget tree. It takes a builder function that provides the model, and it will automatically rebuild whenever the model calls notifyListeners().",
+    "type": "points",
+    "typeOf": "List"
+  },
+  "content17": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content6": {
+    "content": "Implementing Scoped Model: A Counter App Example",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content7": {
+    "content": "Let's build a simple counter application to see Scoped Model in action.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content8": {
+    "content": "1. Add the Dependency",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content9": {
+    "content": "First, you need to add the scoped_model package to your pubspec.yaml file:",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content10": {
+    "content": "dependencies:\n  flutter:\n    sdk: flutter\n  scoped_model: ^2.0.0",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content11": {
+    "content": "Don't forget to run flutter pub get to install the package.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content12": {
+    "content": "2. Create the Model",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content13": {
+    "content": "Next, create a class that extends Model. This will be our CounterModel.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content14": {
+    "content": "import 'package:scoped_model/scoped_model.dart';\n\nclass CounterModel extends Model {\n  int _counter = 0;\n\n  int get counter => _counter;\n\n  void increment() {\n    _counter++;\n    notifyListeners();\n  }\n}",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content15": {
+    "content": "In this model, we have a private _counter variable, a getter to access it, and an increment method that increases the counter and then calls notifyListeners() to update the UI.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content16": {
+    "content": "3. Provide the Model with ScopedModel",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content18": {
+    "content": "Now, we need to make our CounterModel available to the widgets that need it. We'll do this in our main.dart file by wrapping our MaterialApp's home with a ScopedModel widget.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content19": {
+    "content": "import 'package:flutter/material.dart';\nimport 'package:scoped_model/scoped_model.dart';\nimport 'counter_model.dart';\n\nvoid main() {\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      title: 'Scoped Model Demo',\n      home: ScopedModel<CounterModel>(\n        model: CounterModel(),\n        child: const MyHomePage(),\n      ),\n    );\n  }\n}",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content20": {
+    "content": "4. Access and Update the Model with ScopedModelDescendant",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content21": {
+    "content": "Finally, we'll use ScopedModelDescendant to access the CounterModel and display the counter's value. We'll also use it to get a reference to the model to call the increment method.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content22": {
+    "content": "class MyHomePage extends StatelessWidget {\n  const MyHomePage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(\n        title: const Text('Scoped Model Counter'),\n      ),\n      body: Center(\n        child: Column(\n          mainAxisAlignment: MainAxisAlignment.center,\n          children: <Widget>[\n            const Text(\n              'You have pushed the button this many times:',\n            ),\n            ScopedModelDescendant<CounterModel>(\n              builder: (context, child, model) {\n                return Text(\n                  '${model.counter}',\n                  style: Theme.of(context).textTheme.headlineMedium,\n                );\n              },\n            ),\n          ],\n        ),\n      ),\n      floatingActionButton: ScopedModelDescendant<CounterModel>(\n        builder: (context, child, model) {\n          return FloatingActionButton(\n            onPressed: model.increment,\n            tooltip: 'Increment',\n            child: const Icon(Icons.add),\n          );\n        },\n      ),\n    );\n  }\n}",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content23": {
+    "content": "Now, when you run the app and press the floating action button, the increment method in the CounterModel is called. This updates the _counter and calls notifyListeners(). The ScopedModelDescendant widgets that are listening to the CounterModel will then rebuild, displaying the new counter value.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content24": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content25": {
+    "content": "Advantages and Disadvantages",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content26": {
+    "content": "Advantages",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content27": {
+    "content": "Simplicity: Scoped Model is easy to understand and implement, making it a great choice for beginners.\nCentralized Logic: It helps to separate your business logic from your UI code, leading to a cleaner architecture.\nPerformance: It's more efficient than rebuilding the entire widget tree, as only the widgets that depend on the model are rebuilt.",
+    "type": "points",
+    "typeOf": "List"
+  },
+  "content28": {
+    "content": "Disadvantages",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content29": {
+    "content": "Boilerplate: For more complex applications, using ScopedModelDescendant can lead to deeply nested widget trees and boilerplate code.\nLimited Features: It's not as feature-rich as more modern state management solutions. For example, it doesn't offer dependency injection or computed values out of the box.",
+    "type": "points",
+    "typeOf": "List"
+  },
+  "content30": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content31": {
+    "content": "When to Use Scoped Model",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content32": {
+    "content": "Scoped Model is a good choice for small to medium-sized applications where you need a simple and effective way to manage state. However, for larger and more complex applications, you might want to consider more powerful solutions like Provider or Riverpod, which are now more commonly recommended by the Flutter community.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content33": {
+    "content": "Conclusion",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content34": {
+    "content": "The Scoped Model pattern offers a gentle introduction to state management in Flutter. By understanding its core concepts, you can build well-structured and efficient applications. While more advanced solutions have emerged, the principles behind Scoped Model remain relevant and provide a solid foundation for mastering state management in Flutter.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content35": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  }
+}

@@ -1,0 +1,212 @@
+{
+    "content1": {
+        "content": "📘 Basics of Custom Widgets in Flutter",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Flutter is known for its flexible widget system. In Flutter, everything is a widget, and learning how to create custom widgets is essential to build clean, reusable, and scalable apps.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "🧩 What Are Custom Widgets?",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Custom widgets are user-defined widgets that combine one or more built-in widgets. They allow you to:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "Reuse UI components across screens\nOrganize your code better\nMake your code cleaner and easier to maintain",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content6": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content7": {
+        "content": "🔹 Why Use Custom Widgets?",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Using custom widgets helps you:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Avoid repetition\nSeparate UI into meaningful pieces\nIncrease code reusability\nImprove readability and debugging",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content10": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content11": {
+        "content": "🛠️ Types of Custom Widgets",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content12": {
+        "content": "Flutter provides two main types of widgets you can extend:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content13": {
+        "content": {
+            "body": {
+                "row1": [
+                    "Widget Type",
+                    "Description"
+                ],
+                "row2": [
+                    "StatelessWidget",
+                    "UI that does not change over time"
+                ],
+                "row3": [
+                    "StatefulWidget",
+                    "UI that can change (has internal state)"
+                ]
+            }
+        },
+        "type": "Table",
+        "typeOf": "Table"
+    },
+    "content14": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content15": {
+        "content": "✨ Creating a Custom Stateless Widget",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content16": {
+        "content": "import 'package:flutter/material.dart';\n\nclass MyButton extends StatelessWidget {\n  final String label;\n  final VoidCallback onPressed;\n\n  MyButton({required this.label, required this.onPressed});\n\n  @override\n  Widget build(BuildContext context) {\n    return ElevatedButton(\n      onPressed: onPressed,\n      child: Text(label),\n    );\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content18": {
+        "content": "✅ Usage:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content19": {
+        "content": "MyButton(\n\tlabel: \"Click Me\",\n\tonPressed: () {\n\t\tprint(\"Button clicked!\");\n\t},\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content17": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content20": {
+        "content": "🔁 Creating a Custom Stateful Widget",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content21": {
+        "content": "import 'package:flutter/material.dart';\n\nclass CounterBox extends StatefulWidget {\n\t@override\n\t_CounterBoxState createState() => _CounterBoxState();\n}\n\nclass _CounterBoxState extends State<CounterBox> {\n\tint count = 0;\n\n\tvoid _increment() {\n\t\tsetState(() {\n\t\t\tcount++;\n\t});\n}\n\n\t@override\n\t\tWidget build(BuildContext context) {\n\t\t\treturn Column(\n\t\t\t\tchildren: [\n\t\t\t\t\tText(\"Count: $count\", style: TextStyle(fontSize: 20)),\n\t\t\t\t\tElevatedButton(\n\t\t\t\t\t\tonPressed: _increment,\n\t\t\t\t\tchild: Text(\"Increment\"),\n\t\t\t\t),\n\t\t\t\t],\n\t\t\t);\n\t\t}\n\t\t}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content23": {
+        "content": "✅ Usage:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content22": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content24": {
+        "content": "🔁 Creating a Custom Stateful Widget",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content25": {
+        "content": "import 'package:flutter/material.dart';\n\nclass CounterBox extends StatefulWidget {\n\t@override\n\t_CounterBoxState createState() => _CounterBoxState();\n}\n\nclass _CounterBoxState extends State<CounterBox> {\n\tint count = 0;\n\n\tvoid _increment() {\n\t\tsetState(() {\n\t\t\tcount++;\n\t});\n}\n\n\t@override\n\t\tWidget build(BuildContext context) {\n\t\t\treturn Column(\n\t\t\t\tchildren: [\n\t\t\t\t\tText(\"Count: $count\", style: TextStyle(fontSize: 20)),\n\t\t\t\t\tElevatedButton(\n\t\t\t\t\t\tonPressed: _increment,\n\t\t\t\t\tchild: Text(\"Increment\"),\n\t\t\t\t),\n\t\t\t\t],\n\t\t\t);\n\t\t}\n\t\t}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content26": {
+        "content": "✅ Usage:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content34": {
+        "content": "CounterBox();",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content27": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content28": {
+        "content": "🔄 Passing Data to Custom Widgets",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content32": {
+        "content": "Custom widgets can accept parameters like any class:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content29": {
+        "content": "class Greeting extends StatelessWidget {\n\tfinal String name;\n\tGreeting({required this.name});\n\n\t@override\n\tWidget build(BuildContext context) {\n\t\treturn Text(\"Hello, $name!\");\n\t}\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content30": {
+        "content": "✅ Usage:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content33": {
+        "content": "Greeting(name: \"Bharat\"),",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content31": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content35": {
+        "content": "📚 Tips for Better Custom Widgets",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content36": {
+        "content": "Use meaningful names (UserCard, ProductTile, etc.)\nMake widgets small and focusedUse const where possible for performance\n\nExtract widgets as separate files if they grow large",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content37": {
+        "content": "🧠 Summary",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content38": {
+        "content": "Custom widgets help organize your UI\nUse StatelessWidget for static content\nUse StatefulWidget for dynamic content\nPass data using constructor parameters",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content39": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

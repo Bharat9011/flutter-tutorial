@@ -1,0 +1,197 @@
+{
+    "content4": {
+        "content": "📌 Understanding Layouts & Constraints",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "🔹 What Are Layouts in Flutter?",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "A layout is how widgets are arranged on the screen. Flutter uses a widget tree to define UI structure, where parent widgets control how child widgets are positioned and sized.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "🔹 What Are Constraints?",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Constraints are rules that define minimum and maximum dimensions for widgets. Think of constraints like a parent setting boundaries for their child:\nYou must be at least 100px tall, but no taller than 300px.\"\nYou can be as wide as you want, but not wider than the screen.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content9": {
+        "content": "Flutter's layout system follows a two-phase process:\nParent sets constraints (min/max width & height).\nChild decides its size within those constraints.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content42": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content10": {
+        "content": "🏗️ Common Layout Widgets",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "1. `Container` (A Box with Customization)",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content12": {
+        "content": "Think of a `Container` like a cardboard box—you can give it padding, margins, a border, and a background color.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content13": {
+        "content": "Container(\n\t\t\t// Sets the width of the container to 200 logical pixels.\n\t\t\twidth: 200,\n\t\t\t// Sets the height of the container to 100 logical pixels.\n\t\t\theight: 100,\n\t\t\t// Sets the background color of the container to blue.\n\t\t\tcolor: Colors.blue,\n\t\t\t// Adds 10 logical pixels of padding on all sides of the child (Text widget)\n\t\t\tpadding: EdgeInsets.all(10),\n\t\t\t//Adds 20 logical pixels of margin on all sides of the container, creating space around it.\n\t\t\tmargin: EdgeInsets.all(20),\n\t\t\t// The child widget contained within this Container, displaying the text \"Hello Flutter!\"\n\t\t\tchild: Text(\"Hello Flutter!\"),\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content14": {
+        "content": "2. `Row` & `Column` (Linear Arrangement)",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content15": {
+        "content": "- `Row` → Arranges children horizontally (like a bookshelf).\n- `Column` → Arranges children vertically (like a stack of plates).",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content16": {
+        "content": "Row(\n\tchildren: [\n\t\t// Creates a Container with a width and height of 50 logical pixels and a red background color.\n\t\tContainer(width: 50, height: 50, color: Colors.red),\n\t\t// Creates a Container with a width and height of 50 logical pixels and a green background color.\n\t\tContainer(width: 50, height: 50, color: Colors.green),\n\t\t// Creates a Container with a width and height of 50 logical pixels and a blue background color.\n\t\tContainer(width: 50, height: 50, color: Colors.blue),\n\t],\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content17": {
+        "content": "3. `Stack` (Layered Widgets, Like a Stack of Papers)",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content18": {
+        "content": "Overlaps widgets, useful for floating buttons or badges.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content19": {
+        "content": "Stack(\n\tchildren: [\n\t\t// Creates a Container with a width and height of 200 logical pixels and a blue background color.\n\t\tContainer(width: 200, height: 200, color: Colors.blue),\n\t\t// Positions a child Container relative to the edges of the Stack.\n\t\tPositioned(\n\t\t\t// Sets the distance of the top edge of the child from the top edge of the Stack to 10 logical pixels.\n\t\t\ttop: 10,\n\t\t\t// Sets the distance of the right edge of the child from the right edge of the Stack to 10 logical pixels.\n\t\t\tright: 10,\n\t\t\t// Creates a Container with a width and height of 50 logical pixels and a red background color, positioned within the Stack.\n\t\t\tchild: Container(width: 50, height: 50, color: Colors.red),\n\t\t),\n\t],\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content20": {
+        "content": "4. `Expanded` & `Flexible` (Filling Available Space)",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content21": {
+        "content": "- `Expanded` → Takes all remaining space (like a stretchy rubber band).\n- `Flexible` → Takes space based on `flex` factor.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content22": {
+        "content": "Row(\n\tchildren: [\n\t\t// An Expanded widget makes its child fill the available space along the main axis (horizontally in this Row).\n\t\tExpanded(child: Container(color: Colors.red)), // This Container will take up all the remaining horizontal space after the Flexible widget, effectively more than 50% in this case.\n\t\t// A Flexible widget allows its child to be flexible in how it occupies space along the main axis.\n\t\tFlexible(\n\t\t\t// The flex factor determines the proportion of the available space this Flexible widget will take relative to other Flexible/Expanded children.\n\t\t\tflex: 2, // With a flex factor of 2, this Container will take up twice as much of the remaining space as a Flexible widget with a flex factor of 1.\n\t\t\tchild: Container(color: Colors.blue), // The Container with a blue background color.\n\t\t),\n\t],\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content43": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content23": {
+        "content": "🚀 Step-by-Step Implementation",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content24": {
+        "content": "🔸 Step 1: Create a Basic Flutter App",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content25": {
+        "content": "flutter create layout_demo\ncd layout_demo",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content26": {
+        "content": "🔸 Step 2: Replace `lib/main.dart` with Layout Example",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content27": {
+        "content": "import 'package:flutter/material.dart'; \n// The main function that starts the Flutter application.\nvoid main() => runApp(MyApp()); \n// This is the root widget of the application. It's a StatelessWidget because its configuration is immutable.\nclass MyApp extends StatelessWidget { \n\t@override \n\t// The build method describes the part of the user interface represented by this widget.\n\tWidget build(BuildContext context) { \n\t\t// MaterialApp is a widget that wraps a number of widgets that are commonly required for an application implementing Material Design.\n\t\treturn MaterialApp(\n\t\t\t// The home property defines the widget that is displayed as the homepage of the application.\n\t\t\thome: Scaffold(\n\t\t\t\t// Scaffold implements the basic material design visual layout structure.\n\t\t\t\tappBar: AppBar(\n\t\t\t\t\t// AppBar is a horizontal bar typically shown at the top of the Scaffold.\n\t\t\t\t\ttitle: Text(\"Flutter Layouts\"), // The title displayed in the AppBar.\n\t\t\t\t),\n\t\t\t\t// The body property holds the main content of the Scaffold.\n\t\t\t\tbody: Center(\n\t\t\t\t\t// Center widget centers its child within itself.\n\t\t\t\t\tchild: Column(\n\t\t\t\t\t\t// Column widget arranges its children in a vertical line.\n\t\t\t\t\t\tchildren: [\n\t\t\t\t\t\t\t// A Container widget is a simple way to contain other widgets and apply styling.\n\t\t\t\t\t\t\tContainer(\n\t\t\t\t\t\t\t\twidth: 300, // Sets the width of the container to 300 logical pixels.\n\t\t\t\t\t\t\t\theight: 100, // Sets the height of the container to 100 logical pixels.\n\t\t\t\t\t\t\t\tcolor: Colors.amber, // Sets the background color of the container to amber.\n\t\t\t\t\t\t\t\tchild: Text(\"Fixed Size Container\"), // A Text widget displayed inside the Container.\n\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\t// SizedBox is a widget that creates a box with a specified width and/or height (used here for spacing).\n\t\t\t\t\t\t\tSizedBox(height: 20), // Creates a vertical space of 20 logical pixels.\n\t\t\t\t\t\t\t// Row widget arranges its children in a horizontal line.\n\t\t\t\t\t\t\tRow(\n\t\t\t\t\t\t\t\tchildren: [\n\t\t\t\t\t\t\t\t\t// Expanded widget makes a child of a Row or Column fill the available space.\n\t\t\t\t\t\t\t\t\tExpanded(child: Container(height: 50, color: Colors.red)), // This Container will take up an equal portion of the Row's width.\n\t\t\t\t\t\t\t\t\tExpanded(child: Container(height: 50, color: Colors.green)), // This Container will also take up an equal portion of the Row's width.\n\t\t\t\t\t\t\t\t],\n\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\tSizedBox(height: 20), // Creates a vertical space of 20 logical pixels.\n\t\t\t\t\t\t\t// Stack widget positions its children one on top of another.\n\t\t\t\t\t\t\tStack(\n\t\t\t\t\t\t\t\tchildren: [\n\t\t\t\t\t\t\t\t\t// The base Container in the Stack.\n\t\t\t\t\t\t\t\t\tContainer(width: 200, height: 200, color: Colors.blue),\n\t\t\t\t\t\t\t\t\t// Positioned widget controls where a child of a Stack is placed.\n\t\t\t\t\t\t\t\t\tPositioned(\n\t\t\t\t\t\t\t\t\t\tbottom: 10, // Positions the bottom edge of the child 10 logical pixels from the bottom of the Stack.\n\t\t\t\t\t\t\t\t\t\tright: 10, // Positions the right edge of the child 10 logical pixels from the right of the Stack.\n\t\t\t\t\t\t\t\t\t\tchild: Container(width: 50, height: 50, color: Colors.white), // A white Container positioned at the bottom-right of the Stack.\n\t\t\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\t\t],\n\t\t\t\t\t\t\t),\n\t\t\t\t\t\t],\n\t\t\t\t\t),\n\t\t\t\t),\n\t\t\t),\n\t\t);\n\t}\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content28": {
+        "content": "🔸 Step 3: Run the App",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content29": {
+        "content": "flutter run",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content44": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content30": {
+        "content": "⚠️ Common Mistakes & Best Practices",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content31": {
+        "content": "❌ Common Mistakes",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content32": {
+        "content": "1. Forgetting `Expanded` in `Row/Column` → Causes overflow errors.\n2. Not using `SizedBox` for spacing → Hardcoding margins manually.\n3. Ignoring constraints → Assuming widgets size themselves magically.\n4. Overusing `Stack` → Can lead to messy, unresponsive layouts.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content45": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content33": {
+        "content": "✅ Best Practices",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content34": {
+        "content": "✔ Use `Expanded` & `Flexible` for dynamic sizing.\n✔ Wrap widgets in `SafeArea` to avoid notches.\n✔ Test on multiple devices to ensure responsiveness.\n✔ Use `ListView` instead of `Column` for scrollable content.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content46": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content35": {
+        "content": "🔑 Key Takeaways",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content36": {
+        "content": "1. Constraints flow down → Parents define min/max sizes for children.\n2. Sizes flow up → Children decide their size within constraints.\n3. Use `Row/Column` for linear layouts, `Stack` for overlapping.\n4. `Expanded` & `Flexible` help widgets fill available space.\n5. Avoid overflow errors by ensuring widgets fit constraints.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content47": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

@@ -1,0 +1,47 @@
+{
+    "content1": {
+        "content": "State Management",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "State management is about how you share data across your app and update the UI when that data changes.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Ephemeral State",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "State that is contained within a single widget (e.g., current tab, animation value). Use `setState`.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "2. App State",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "State that is shared across many parts of the app (e.g., user authentication, shopping cart). Use `Provider`, `Riverpod`, or `BLoC`.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Choose the simplest solution that fits your needs. Don't use Redux for a counter app.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

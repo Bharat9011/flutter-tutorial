@@ -1,0 +1,42 @@
+{
+    "content1": {
+        "content": "RawGestureDetector & Custom Gestures",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "When `GestureDetector` isn't enough, `RawGestureDetector` gives you access to the gesture arena, allowing you to define custom gesture recognizers.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Gesture Arena",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Flutter uses an arena to decide which gesture wins when multiple are competing (e.g., vertical scroll vs. horizontal swipe).",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "RawGestureDetector(\n  gestures: <Type, GestureRecognizerFactory>{\n    TapGestureRecognizer: GestureRecognizerFactoryWithHandlers<TapGestureRecognizer>(\n      () => TapGestureRecognizer(),\n      (TapGestureRecognizer instance) {\n        instance.onTap = () => print('Raw Tap');\n      },\n    ),\n  },\n  child: Container(color: Colors.purple, width: 100, height: 100),\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "This is advanced territory. Only use it if you need to resolve gesture conflicts manually.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

@@ -1,0 +1,73 @@
+{
+    "content1": {
+        "content": "Your First Application",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": [
+            {
+                "number": 1,
+                "title": "Project Setup",
+                "bullets": [
+                    "Create a new Flutter project:\n\t\t\t\t`flutter create my_app`",
+                    "Open the project in your IDE.",
+                    "Overview of the project structure:",
+                    "lib/main.dart (main entry point)",
+                    "pubspec.yaml (dependencies and assets)",
+                    "android/, ios/, web/, test/ folders."
+                ]
+            },
+            {
+                "number": 2,
+                "title": "Understanding main.dart",
+                "bullets": [
+                    "In Flutter, the main() function is the entry point of the application—just like in any Dart program. It is where the execution of the app begins.",
+                    "Every Flutter app must have a main() function.",
+                    "It is automatically called when the app starts.",
+                    "Inside main(), you usually call runApp() with the root widget of your application.",
+                    "runApp() attaches the given widget to the screen and makes it the root of the widget tree.",
+                    "StatelessWidget: Immutable (cannot change after being built).",
+                    "StatelessWidget: Used when the UI does not need to update dynamically.",
+                    "Example: A static text label, an icon, or a fixed image.",
+                    "StatefulWidget : Mutable (can change dynamically).",
+                    "Used when the UI needs to update (e.g., counters, forms, animations).",
+                    "Example: A button that changes color when pressed, a counter app."
+                ]
+            }
+        ],
+        "type": "List",
+        "typeOf": "List-Text-number"
+    },
+    "content4": {
+        "content": "void main() {\n\t\t\trunApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n\t\t@override\n\t\tWidget build(BuildContext context) {\n\t\t\treturn MaterialApp(\n\t\t\t\thome: MyHomePage(),\n\t\t);\n\t}\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content5": {
+        "content": [
+            {
+                "number": 3,
+                "title": "Creating a Simple UI",
+                "bullets": [
+                    "Create a home screen with:",
+                    "AppBar",
+                    "Text widget",
+                    "ElevatedButton with onPressed"
+                ]
+            }
+        ],
+        "type": "List",
+        "typeOf": "List-Text-number"
+    },
+    "content6": {
+        "content": "class MyHomePage extends StatelessWidget {\n\t@override\n\tWidget build(BuildContext context) {\n\t\treturn Scaffold(\n\t\t\tappBar: AppBar(\n\t\t\t\ttitle: Text('First App'),\n\t\t\t),\n\t\t\tbody: Center(\n\t\t\t\tchild: Column(\n\t\t\t\t\tmainAxisAlignment: MainAxisAlignment.center,\n\t\t\t\t\tchildren: [\n\t\t\t\t\t\tText('Welcome to your first Flutter app!'),\n\t\t\t\t\t\tSizedBox(height: 20),\n\t\t\t\t\t\tElevatedButton(\n\t\t\t\t\t\t\tonPressed: () {\n\t\t\t\t\t\t\t\tprint('Button Pressed');\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tchild: Text('Click Me'),\n\t\t\t\t\t\t),\n\t\t\t\t\t],\n\t\t\t\t),\n\t\t\t),\n\t\t);\n\t}\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content7": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

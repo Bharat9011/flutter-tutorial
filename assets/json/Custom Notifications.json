@@ -1,0 +1,47 @@
+{
+    "content1": {
+        "content": "Custom Notifications",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "While system notifications have a standard look, you can customize them to match your brand or provide richer content.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Custom Layouts",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "On Android, you can use `RemoteViews` to create completely custom notification layouts. This requires platform-specific code.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "2. Actions & Inputs",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "You can add buttons (e.g., 'Reply', 'Mark as Read') or text input fields directly to the notification.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Customizations allow for unique user experiences but require more effort to implement across platforms.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

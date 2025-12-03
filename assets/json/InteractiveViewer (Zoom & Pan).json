@@ -1,0 +1,52 @@
+{
+    "content1": {
+        "content": "InteractiveViewer (Zoom & Pan)",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "The `InteractiveViewer` widget allows users to pan and zoom its child, making it perfect for image galleries, maps, or large diagrams.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Usage",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Simply wrap your content in `InteractiveViewer`.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "InteractiveViewer(\n  boundaryMargin: EdgeInsets.all(20.0),\n  minScale: 0.1,\n  maxScale: 4.0,\n  child: Image.asset('assets/map.png'),\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Constrained vs Unconstrained",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "By default, it constrains the child to the viewport. Use `constrained: false` for infinite canvases.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "It handles all the complex matrix transformations for you, providing a smooth, native zoom/pan experience.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

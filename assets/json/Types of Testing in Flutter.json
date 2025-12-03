@@ -1,0 +1,67 @@
+{
+    "content1": {
+        "content": "Types of Testing in Flutter",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Flutter supports three main types of tests: Unit, Widget, and Integration.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Unit Tests",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Test a single function, method, or class. Fast and isolated.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "test('Counter increments', () {\n  final counter = Counter();\n  counter.increment();\n  expect(counter.value, 1);\n});",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Widget Tests",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Test a single widget. Verifies UI layout and interaction.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "testWidgets('MyWidget has a title', (tester) async {\n  await tester.pumpWidget(MyWidget(title: 'T'));\n  expect(find.text('T'), findsOneWidget);\n});",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content9": {
+        "content": "3. Integration Tests",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "Test the complete app or a large part of it. Runs on a real device or emulator.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content12": {
+        "content": "A healthy test suite has many unit tests, fewer widget tests, and even fewer integration tests.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content13": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

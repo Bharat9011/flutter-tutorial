@@ -1,0 +1,52 @@
+{
+    "content1": {
+        "content": "Performance Optimization for Animations",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Animations run at 60 (or 120) frames per second. Any lag here is immediately noticeable.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Use const Constructors",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Marking widgets as `const` allows Flutter to reuse them instead of rebuilding them every frame.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "2. RepaintBoundary",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "Wrap complex animated widgets in a `RepaintBoundary` to isolate their painting from the rest of the screen.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "RepaintBoundary(\n  child: ComplexAnimatedWidget(),\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content8": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Optimizing animations ensures your app remains buttery smooth even on lower-end devices.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

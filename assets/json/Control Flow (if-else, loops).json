@@ -1,0 +1,225 @@
+{
+    "content2": {
+        "content": "🧠 1. What is Control Flow?",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "💡 Simple Definition:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Control flow lets your program make decisions (if-else) and repeat actions (loops) based on conditions.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "🚦 Real-World Analogy:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content1": {
+        "content": "Imagine you're driving",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "Traffic signal → If it's red, stop. If green, go. (➡️ `if-else`)\nWiper keeps moving while it's raining. (➡️ `while` loop)\nGym workout: Do 10 push-ups (repeat fixed times). (➡️ `for` loop)",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content36": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content7": {
+        "content": "✳️ 2. Conditional Statements in Dart",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "✨ Syntax:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "if (condition) {\n  // code if true\n} else if (anotherCondition) {\n  // code if second is true\n} else {\n  // code if all are false\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content10": {
+        "content": "✅ Example:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "void main() {\n  int age = 18;\n\n  if (age >= 18) {\n    print(\"You are eligible to vote.\");\n  } else {\n    print(\"You are not eligible to vote.\");\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content12": {
+        "content": "📝 Explanation:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content13": {
+        "content": "`age >= 18` is the condition\nIf it's `true`, Dart runs the first block.\nOtherwise, it runs the `else` block.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content37": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content14": {
+        "content": "🔁 3. Loops in Dart",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content15": {
+        "content": "🌀 3.1 `for` Loop (fixed number of times)",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content16": {
+        "content": "for (int i = 1; i <= 5; i++) {\n  print(\"Push-up $i\");\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content17": {
+        "content": "Analogy: A coach says, \"Do 5 push-ups.\"",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content18": {
+        "content": "🔁 3.2 `while` Loop (runs while condition is true)",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content19": {
+        "content": "int water = 3;\nwhile (water > 0) {\n  print(\"Drink a glass of water.\");\n  water--;\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content20": {
+        "content": "Analogy: You keep drinking water until the bottle is empty.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content21": {
+        "content": "🔄 3.3 `do-while` Loop (runs at least once)",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content22": {
+        "content": "int attempts = 1;\ndo {\n  print(\"Trying to connect... Attempt $attempts\");\n  attempts++;\n} while (attempts <= 3);",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content38": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content24": {
+        "content": "🧱 4. Step-by-Step Dart Program",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content25": {
+        "content": "Check a student's grade using `if-else`\nUse a `for` loop to display subject names\nUse `while` to simulate countdown",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content26": {
+        "content": "💻 Full Dart Code Example:",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content27": {
+        "content": "void main() {\n  // Step 1: If-Else - Grade Checker\n  int marks = 85;\n\n  if (marks >= 90) {\n    print(\"Grade: A\");\n  } else if (marks >= 75) {\n    print(\"Grade: B\");\n  } else {\n    print(\"Grade: C\");\n  }\n\n  // Step 2: For Loop - Display subjects\n  List<String> subjects = [\"Math\", \"Science\", \"English\"];\n  for (int i = 0; i < subjects.length; i++) {\n    print(\"Subject ${i + 1}: ${subjects[i]}\");\n  }\n\n  // Step 3: While Loop - Countdown\n  int countdown = 5;\n  while (countdown > 0) {\n    print(\"Timer: $countdown\");\n    countdown--;\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content39": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content28": {
+        "content": "🚨 5. Common Mistakes in Dart Control Flow",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content29": {
+        "content": {
+            "body": {
+                "row1": [
+                    "Mistake ",
+                    " Problem ",
+                    " Fix"
+                ],
+                "row2": [
+                    "❌ Missing `{}` after `if` or `for` ",
+                    " Only 1 line runs, others are ignored ",
+                    " Always use `{}` for blocks"
+                ],
+                "row3": [
+                    "❌ Infinite loops ",
+                    " Forgot to update condition ",
+                    " Make sure the loop ends"
+                ],
+                "row4": [
+                    "❌ Misplaced `else` or `else if` ",
+                    " Syntax error ",
+                    " Pair them properly"
+                ],
+                "row5": [
+                    "Using `=` instead of `==` ",
+                    " `=` is assignment, not comparison ",
+                    " Use `==` for comparison"
+                ]
+            }
+        },
+        "type": "Table",
+        "typeOf": "Table"
+    },
+    "content40": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content30": {
+        "content": "✅ 6. Best Practices",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content31": {
+        "content": "🧠 Use clear and meaningful conditions\n🧱 Keep loop counters updated (`i++`)\n🎯 Use `for` for fixed iterations, `while` when unsure\n🔄 Break out of loops using `break` if needed",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content41": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content32": {
+        "content": "📌 7. Key Takeaways",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content33": {
+        "content": "`if-else` helps your code make decisions.\nLoops (`for`, `while`, `do-while`) help repeat code efficiently.\nAlways be careful with loop conditions to avoid infinite loops.\nCombine control flow tools to build smart and dynamic programs.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content35": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

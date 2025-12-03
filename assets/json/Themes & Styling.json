@@ -1,0 +1,274 @@
+{
+    "content1": {
+        "content": "Flutter Themes & Styling: A Beginner's Guide",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Themes help maintain consistent styling across your app (colors, fonts, shapes). This guide covers how to use Flutter's theming system effectively.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "📌 What is a Theme?",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "A theme defines the visual design of your app, including:\nTableColors (primary, accent, background)\nTableText styles (headlines, body text)\nTableShapes (buttons, cards)\nThink of it like a \"design rulebook\" for your app.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content5": {
+        "content": {
+            "index": 1,
+            "question": "What is the PRIMARY purpose of using themes in Flutter?",
+            "option": [
+                "To reduce app size",
+                "To maintain consistent styling across the app",
+                "To improve app performance",
+                "To enable platform-specific features"
+            ],
+            "ans": "To maintain consistent styling across the app",
+            "ansSuggesstion": "Themes ensure visual consistency in colors, fonts, and shapes throughout the app."
+        },
+        "type": "break",
+        "typeOf": "mcq-break"
+    },
+    "content6": {
+        "content": "🎨 Setting Up a Theme",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": [
+            {
+                "number": 1,
+                "title": "Default Material Theme:",
+                "bullets": [
+                    "Flutter provides default ThemeData based on Material Design",
+                    "Example: primarySwatch, fontFamily customization"
+                ]
+            },
+            {
+                "number": 2,
+                "title": "Custom Theme:",
+                "bullets": [
+                    "Define primaryColor, accentColor, textTheme",
+                    "Customize button shapes and card styles"
+                ]
+            },
+            {
+                "number": 3,
+                "title": "Applying the Theme:",
+                "bullets": [
+                    "Access theme properties with Theme.of(context)",
+                    "Use theme styles in widgets like Text and Container"
+                ]
+            }
+        ],
+        "type": "List",
+        "typeOf": "List-Text-number"
+    },
+    "content8": {
+        "content": "Default Material Theme Example:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "MaterialApp(\n  theme: ThemeData(\n    primarySwatch: Colors.blue,\n    fontFamily: 'Roboto',\n  ),\n  home: MyHomePage(),\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content10": {
+        "content": {
+            "index": 2,
+            "question": "Which method is used to access theme properties in a widget?",
+            "option": [
+                "Theme.get(context)",
+                "Theme.of(context)",
+                "context.theme()",
+                "ThemeData.current()"
+            ],
+            "ans": "Theme.of(context)",
+            "ansSuggesstion": "Theme.of(context) provides access to the nearest ThemeData in the widget tree."
+        },
+        "type": "break",
+        "typeOf": "mcq-break"
+    },
+    "content11": {
+        "content": "🎯 Using Theme Colors & Styles",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content32": {
+        "content": "Common Theme Colors:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content12": {
+        "content": {
+            "body": {
+                "row1": [
+                    "Property ",
+                    "Usage"
+                ],
+                "row2": [
+                    "primaryColor",
+                    "App bar, buttons"
+                ],
+                "row3": [
+                    "accentColor ",
+                    "Selection controls"
+                ],
+                "row4": [
+                    "backgroundColor",
+                    "Scaffold background"
+                ]
+            }
+        },
+        "type": "Table",
+        "typeOf": "Table"
+    },
+    "content13": {
+        "content": "Dark & Light Themes Example:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content14": {
+        "content": "MaterialApp(\n  theme: ThemeData.light(),\n  darkTheme: ThemeData.dark(),\n  themeMode: ThemeMode.system,\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content15": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content16": {
+        "content": "🔄 Overriding Theme Styles Locally",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content17": {
+        "content": "You can override the theme for specific widgets using Theme.with:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content18": {
+        "content": "Theme(\n  data: Theme.of(context).copyWith(\n    primaryColor: Colors.red,\n  ),\n  child: ElevatedButton(...),\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content19": {
+        "content": {
+            "index": 3,
+            "question": "What is the correct way to override ONLY the primary color for a specific widget subtree?",
+            "option": [
+                "Using ThemeData.setPrimaryColor()",
+                "Using Theme.copyWith()",
+                "Creating a new MaterialApp",
+                "Using direct color assignment"
+            ],
+            "ans": "Using Theme.copyWith()",
+            "ansSuggesstion": "Theme.copyWith() creates a new theme with selected overrides while preserving other properties."
+        },
+        "type": "break",
+        "typeOf": "mcq-break"
+    },
+    "content20": {
+        "content": "📐 Customizing Widget Shapes",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content21": {
+        "content": [
+            {
+                "number": 1,
+                "title": "Button Shapes:",
+                "bullets": [
+                    "Customize via elevatedButtonTheme",
+                    "Example: Rounded corners with BorderRadius"
+                ]
+            },
+            {
+                "number": 2,
+                "title": "Card Shapes:",
+                "bullets": [
+                    "Modify via cardTheme",
+                    "Example: Circular borders with borderRadius"
+                ]
+            }
+        ],
+        "type": "List",
+        "typeOf": "List-Text-number"
+    },
+    "content22": {
+        "content": "Button Shape Example:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content23": {
+        "content": "ThemeData(\n  elevatedButtonTheme: ElevatedButtonThemeData(\n    style: ElevatedButton.styleFrom(\n      shape: RoundedRectangleBorder(\n        borderRadius: BorderRadius.circular(10),\n    ),\n  ),\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content24": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content25": {
+        "content": "⚠️ Common Mistakes & Best Practices",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content26": {
+        "content": [
+            {
+                "title": "❌ Common Mistakes",
+                "bullets": [
+                    "Hardcoding colors/styles",
+                    "Not using Theme.of(context)",
+                    "Overcomplicating themes"
+                ]
+            },
+            {
+                "title": "✅ Best Practices",
+                "bullets": [
+                    "Use primarySwatch for Material palettes",
+                    "Define reusable styles in ThemeData",
+                    "Use copyWith() for minor adjustments",
+                    "Test in both light/dark modes"
+                ]
+            }
+        ],
+        "type": "List",
+        "typeOf": "List-Text"
+    },
+    "content27": {
+        "content": "🔑 Key Takeaways",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content28": {
+        "content": "1. ThemeData controls global styling\n2. Access properties with Theme.of(context)\n3. Support dark/light themes\n4. Override styles locally when needed",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content29": {
+        "content": "🚀 Next Steps",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content30": {
+        "content": "TableTry custom font themes\nTableExplore Material 3 design\nTableBuild a theme switcher",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content31": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

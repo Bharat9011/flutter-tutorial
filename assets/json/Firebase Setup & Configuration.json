@@ -1,0 +1,82 @@
+{
+    "content1": {
+        "content": "Firebase Setup & Configuration",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Setting up Firebase is the first step to integrating backend services into your Flutter app. This involves creating a project in the Firebase Console and configuring your Android and iOS apps.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Create a Firebase Project",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Go to the Firebase Console (console.firebase.google.com) and click 'Add project'. Follow the on-screen instructions to name your project and enable Google Analytics if desired.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "2. Register Your App",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "In the Firebase Console, click the Flutter icon to launch the setup workflow. This is the recommended way as it uses the FlutterFire CLI.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "3. Install FlutterFire CLI",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Run the following command to install the CLI:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "dart pub global activate flutterfire_cli",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content10": {
+        "content": "4. Configure App",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "Run the configure command in your project root:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content12": {
+        "content": "flutterfire configure",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content13": {
+        "content": "This command will automatically register your Android and iOS apps in the Firebase Console and generate a `firebase_options.dart` file in your `lib` folder.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content14": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content15": {
+        "content": "Using the FlutterFire CLI simplifies the setup process significantly compared to manually downloading `google-services.json` and `GoogleService-Info.plist` files.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content16": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

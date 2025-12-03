@@ -1,0 +1,47 @@
+{
+    "content1": {
+        "content": "Handling Notifications",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Your app needs to handle notifications differently depending on its state: Foreground, Background, or Terminated.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Foreground",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "The app is open. You might show a custom in-app dialog or snackbar instead of a system notification.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "2. Background/Terminated",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "The system handles the notification display. When the user taps it, your app launches, and you receive a payload to navigate to the correct screen.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Proper handling ensures a seamless transition from the notification tray to your app's content.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

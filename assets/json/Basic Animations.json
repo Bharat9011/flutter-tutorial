@@ -1,0 +1,57 @@
+{
+    "content1": {
+        "content": "Basic Animations",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Animations add life to your app. In Flutter, the core building blocks for explicit animations are the `AnimationController`, `Animation`, and `Tween` classes.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. AnimationController",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Manages the animation state (playing, stopped, etc.) and generates values between 0.0 and 1.0 over a duration.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "late AnimationController _controller;\n\n@override\nvoid initState() {\n  super.initState();\n  _controller = AnimationController(\n    duration: const Duration(seconds: 2),\n    vsync: this,\n  );\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Tween",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Maps the 0.0-1.0 range from the controller to a different range or data type (e.g., colors, sizes).",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "late Animation<double> _animation;\n\n_animation = Tween<double>(begin: 0, end: 300).animate(_controller)\n  ..addListener(() {\n    setState(() {});\n  });",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content9": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "By combining a Controller and a Tween, you can animate almost any property of a widget.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

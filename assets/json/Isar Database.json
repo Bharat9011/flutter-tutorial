@@ -1,0 +1,252 @@
+{
+  "content1": {
+    "content": "Flutter: Super-fast Persistence with Isar Database",
+    "type": "heading",
+    "typeOf": "Text"
+  },
+  "content2": {
+    "content": "While ObjectBox is a fantastic high-performance database, another top-tier competitor in the Flutter ecosystem is Isar. Built from the ground up for Dart and Flutter, Isar is an extremely fast, open-source, and feature-rich NoSQL database that has gained immense popularity for local data storage.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content3": {
+    "content": "This article will guide you through setting up and using Isar to manage your app's local data.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content4": {
+    "content": "What is Isar and Why Use It?",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content5": {
+    "content": "Isar is a fully asynchronous, ACID-compliant, and statically-typed database. You work directly with Dart objects, and Isar's powerful engine, written in Rust, handles the storage and querying with incredible speed.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content6": {
+    "content": "Key Advantages:",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content7": {
+    "content": "Extremely Fast: Performance is a primary design goal, with benchmarks showing it competes at the top with other high-performance embedded databases.\nFeature-Rich: Supports complex queries, multi-entry indexes, full-text search, and JSON support out of the box.\nACID Compliance: Guarantees that your database transactions are Atomic, Consistent, Isolated, and Durable, protecting your data integrity.\nCompile-Time Safe & Statically Typed: Isar's code generator creates type-safe queries, so you can catch errors at compile time, not at runtime.\nBuilt-in Relations: Supports one-to-one, one-to-many, and many-to-many relationships (called Links) between your data collections.\nExcellent Tooling: Comes with the Isar Inspector, a live-debugging tool that allows you to view, query, and edit your data in real-time during development.\nAsynchronous Core: Designed to be fully async, with support for multi-isolate usage to prevent blocking the UI thread.",
+    "type": "points",
+    "typeOf": "List"
+  },
+  "content8": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content9": {
+    "content": "Setting Up Isar in Your Flutter Project",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content10": {
+    "content": "Setting up Isar is straightforward and relies on code generation to provide its excellent type safety and performance.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content11": {
+    "content": "Step 1: Add Dependencies",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content12": {
+    "content": "Add the required packages to your pubspec.yaml file:",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content13": {
+    "content": "dependencies:\n  flutter:\n    sdk: flutter\n  isar: ^3.1.0+1 # Use the latest version\n  isar_flutter_libs: ^3.1.0+1 # Contains the native binaries for Isar\n  path_provider: ^2.0.0 # To find the correct directory for the database\n\ndev_dependencies:\n  flutter_test:\n    sdk: flutter\n  build_runner: ^2.4.0 # Use the latest version\n  isar_generator: ^3.1.0+1 # Use the latest version\n",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content14": {
+    "content": "Run flutter pub get in your terminal.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content15": {
+    "content": "Step 2: Create a Data Model (Collection)",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content16": {
+    "content": "In Isar, a data model is called a \"Collection.\" You define it by annotating a Dart class with @collection.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content17": {
+    "content": "Let's create a Note model.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content18": {
+    "content": "// lib/model/note.dart\nimport 'package:isar/isar.dart';\n\n// You need to add this part directive for the generator to work\npart 'note.g.dart';\n\n@collection\nclass Note {\n  // Isar will automatically assign an auto-incrementing id\n  Id id = Isar.autoIncrement;\n\n  late String title;\n  late String content;\n  DateTime lastModified;\n\n  Note({\n    required this.title,\n    required this.content,\n  }) : lastModified = DateTime.now();\n}\n",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content19": {
+    "content": "Key Points:",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content20": {
+    "content": "part 'note.g.dart';: This is required for the code generator. The file doesn't exist yet; it will be created in the next step.\n@collection: Marks this class as an Isar collection.\nId id = Isar.autoIncrement;: Defines an auto-incrementing primary key.",
+    "type": "points",
+    "typeOf": "List"
+  },
+  "content21": {
+    "content": "Step 3: Run the Code Generator",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content22": {
+    "content": "Run the build_runner command to generate the necessary note.g.dart file.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content23": {
+    "content": "flutter pub run build_runner build",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content24": {
+    "content": "You must re-run this command whenever you change your collection classes.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content25": {
+    "content": "Step 4: Initialize the Isar Instance",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content26": {
+    "content": "It's best practice to create a singleton or a helper class to manage the Isar instance.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content27": {
+    "content": "// lib/isar_service.dart\nimport 'package:isar/isar.dart';\nimport 'package:path_provider/path_provider.dart';\nimport 'model/note.dart'; // Import your collection class\n\nclass IsarService {\n  late Future<Isar> db;\n\n  IsarService() {\n    db = openDB();\n  }\n\n  Future<Isar> openDB() async {\n    final dir = await getApplicationDocumentsDirectory();\n    if (Isar.instanceNames.isEmpty) {\n      return await Isar.open(\n        [NoteSchema], // Pass all your collection schemas here\n        directory: dir.path,\n        inspector: true, // Enable the inspector in debug mode\n      );\n    }\n    return Future.value(Isar.getInstance());\n  }\n}\n",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content28": {
+    "content": "You can then create an instance of this service in your main.dart and make it available to your app, for example, using a state management solution like Riverpod or Provider.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content29": {
+    "content": "Performing CRUD Operations",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content30": {
+    "content": "CRUD operations in Isar are performed within transactions. writeTxn is used for operations that modify the database.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content31": {
+    "content": "Let's assume you have an IsarService instance available as isarService.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content32": {
+    "content": "Create / Update (Put)",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content33": {
+    "content": "The put() method handles both creating a new object and updating an existing one. If the object's id is new, it's inserted; otherwise, it's updated.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content34": {
+    "content": "Future<void> saveNote(Note newNote) async {\n  final isar = await isarService.db;\n  // Use a write transaction to modify the database\n  await isar.writeTxn(() async {\n    await isar.notes.put(newNote); // .notes is a generated accessor\n  });\n}",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content35": {
+    "content": "Read",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content36": {
+    "content": "You can read all objects or query for specific ones.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content37": {
+    "content": "// Get all notes, sorted by last modified date\nFuture<List<Note>> getAllNotes() async {\n  final isar = await isarService.db;\n  return await isar.notes.where().sortByLastModifiedDesc().findAll();\n}\n\n// Get a single note by its ID\nFuture<Note?> getNoteById(int id) async {\n  final isar = await isarService.db;\n  return await isar.notes.get(id);\n}\n",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content38": {
+    "content": "Querying with Filters",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content39": {
+    "content": "Isar provides a powerful and type-safe query builder.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content40": {
+    "content": "// Find all notes containing the word \"Flutter\" in the title\nFuture<List<Note>> findNotesByTitle(String searchTerm) async {\n  final isar = await isarService.db;\n  return await isar.notes.filter()\n      .titleContains(searchTerm, caseSensitive: false)\n      .findAll();\n}\n",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content41": {
+    "content": "Delete",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content42": {
+    "content": "To remove an object, use delete() inside a write transaction.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content43": {
+    "content": "Future<void> deleteNote(int noteId) async {\n  final isar = await isarService.db;\n  await isar.writeTxn(() async {\n    final success = await isar.notes.delete(noteId);\n    print(success ? 'Note deleted!' : 'Note not found.');\n  });\n}\n",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content44": {
+    "content": "Watching for Changes (Reactive UI)",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content45": {
+    "content": "One of Isar's most powerful features is the ability to watch for changes in a query and reactively update your UI. The .watch() method returns a Stream that emits the new list of results whenever the data changes.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content46": {
+    "content": "// In your widget, you can use a StreamBuilder to listen to changes\nStreamBuilder<List<Note>>(\n  stream: isar.notes.where().watch(fireImmediately: true),\n  builder: (context, snapshot) {\n    if (snapshot.hasData) {\n      final notes = snapshot.data!;\n      return ListView.builder(\n        itemCount: notes.length,\n        itemBuilder: (context, index) {\n          return ListTile(title: Text(notes[index].title));\n        },\n      );\n    }\n    return Center(child: CircularProgressIndicator());\n  },\n)",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content47": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content48": {
+    "content": "Conclusion",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content49": {
+    "content": "Isar offers an outstanding developer experience with its speed, type-safety, and rich feature set. It provides a modern and powerful alternative to other local databases in Flutter. With features like the Isar Inspector, reactive queries, and easy-to-use relationships, it equips you with all the tools needed to handle complex local data persistence with ease. For new Flutter projects requiring a robust local database, Isar is an excellent choice.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content50": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  }
+}

@@ -1,0 +1,202 @@
+{
+  "content1": {
+    "content": "Introduction to Flutter",
+    "type": "heading",
+    "typeOf": "Text"
+  },
+  "content2": {
+    "content": "Flutter is an open-source UI software development kit created by Google that allows developers to build natively compiled applications for mobile, web, and desktop from a single codebase. Here's a comprehensive introduction you can use for your Flutter tutorial app:",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content3": {
+    "content": "What is Flutter?",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content4": {
+    "content": "Flutter is a modern framework that enables:",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content5": {
+    "content": "Cross-platform development: Write once, run anywhere (iOS, Android, web, desktop)\nNative performance: Compiles to native ARM code for mobile devices\nBeautiful UIs: Rich set of customizable widgets\nFast development: Hot reload for instant updates",
+    "type": "points",
+    "typeOf": "List"
+  },
+  "content6": {
+    "content": {
+      "index": 1,
+      "question": "What is Flutter primarily used for?",
+      "option": [
+        "Only Android app development",
+        "Only iOS app development",
+        "Cross-platform app development (mobile, web, desktop)",
+        "Backend server development"
+      ],
+      "ans": "Cross-platform app development (mobile, web, desktop)",
+      "ansSuggesstion": "Flutter allows building apps for multiple platforms from a single codebase."
+    },
+    "type": "break",
+    "typeOf": "mcq-break"
+  },
+  "content8": {
+    "content": {
+      "index": 2,
+      "question": "Which feature of Flutter helps developers see code changes instantly without restarting the app?",
+      "option": [
+        "Cold reload",
+        "Hot reload",
+        "Native compilation",
+        "Widget tree"
+      ],
+      "ans": "Hot reload",
+      "ansSuggesstion": "Hot reload allows instant updates while developing."
+    },
+    "type": "break",
+    "typeOf": "mcq-break"
+  },
+  "content9": {
+    "content": "Key Features of Flutter",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content10": {
+    "content": [
+      {
+        "number": 1,
+        "title": "Dart Programming Language:",
+        "bullets": [
+          "Flutter uses Dart, an optimized client-focused language",
+          "Easy to learn with features like async/await",
+          "Strong typing and just-in-time (JIT) & ahead-of-time (AOT) compilation"
+        ]
+      },
+      {
+        "number": 2,
+        "title": "Widget-based Architecture:",
+        "bullets": [
+          "Everything in Flutter is a widget",
+          "Composable UI building blocks",
+          "Two types: Stateless (immutable) and Stateful (mutable) widgets"
+        ]
+      },
+      {
+        "number": 3,
+        "title": "Hot Reload:",
+        "bullets": [
+          "See changes instantly without restarting the app",
+          "Maintains app state during development",
+          "Dramatically reduces development time"
+        ]
+      },
+      {
+        "number": 4,
+        "title": "Rich Widget Library:",
+        "bullets": [
+          "Material Design (Android-style) widgets",
+          "Cupertino (iOS-style) widgets",
+          "Custom widgets for any design need"
+        ]
+      },
+      {
+        "number": 5,
+        "title": "Native Performance:",
+        "bullets": [
+          "No JavaScript bridge (unlike some other frameworks)",
+          "Direct compilation to native ARM code",
+          "Access to platform APIs and services"
+        ]
+      }
+    ],
+    "type": "List",
+    "typeOf": "List-Text-number"
+  },
+  "content11": {
+    "content": {
+      "index": 1,
+      "question": "A banking app needs to update the user's balance in real-time after a transaction. Which Flutter widget type is MOST suitable for this dynamic UI update?",
+      "option": [
+        "StatelessWidget",
+        "InheritedWidget",
+        "StatefulWidget",
+        "MaterialApp"
+      ],
+      "ans": "StatefulWidget",
+      "ansSuggesstion": "Stateful widgets handle mutable data (like a changing balance).\nStateless widgets are static; InheritedWidget is for state propagation.\nTests real-world scenario analysis."
+    },
+    "type": "break",
+    "typeOf": "mcq-break"
+  },
+  "content12": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content13": {
+    "content": {
+      "index": 2,
+      "question": "What is the PRIMARY advantage of Flutter's \"Hot Reload\" during development compared to traditional recompilation?",
+      "option": [
+        "It reduces app size for production.",
+        "It allows instant UI updates without losing app state.",
+        "It enables cross-platform compilation.",
+        "It replaces the need for testing."
+      ],
+      "ans": "It allows instant UI updates without losing app state.",
+      "ansSuggesstion": "Hot Reload’s core benefit is developer productivity.\nDistractors (a, c, d) are unrelated or incorrect.\nAssesses understanding of Flutter’s tooling."
+    },
+    "type": "break",
+    "typeOf": "mcq-break"
+  },
+  "content14": {
+    "content": "Why Choose Flutter?",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content15": {
+    "content": "Single Codebase: Maintain one codebase for multiple platforms\nProductivity: Faster development cycles with hot reload\nUI Flexibility: Pixel-perfect control over every screen element\nGrowing Ecosystem: Strong community support and package ecosystem\nBacked by Google: Continuous improvements and long-term support",
+    "type": "points",
+    "typeOf": "List"
+  },
+  "content16": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content17": {
+    "content": "Flutter Architecture",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content18": {
+    "content": "Flutter's architecture consists of three main layers:",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content19": {
+    "content": "Framework Layer (Dart): Widgets, rendering, animation, gestures\nEngine Layer (C/C++): Skia graphics library, Dart runtime\nEmbedder Layer (Platform-specific): Interfaces with the underlying OS",
+    "type": "Number",
+    "typeOf": "List"
+  },
+  "content20": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content21": {
+    "content": "Flutter is ideal for",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content22": {
+    "content": "Mobile apps (iOS and Android)\nWeb applications\nDesktop applications (Windows, macOS, Linux)\nMVP (Minimum Viable Product) development\nApps requiring custom, beautiful UIs\nProjects with limited resources needing cross-platform solutions",
+    "type": "point",
+    "typeOf": "List"
+  },
+  "content23": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  }
+}

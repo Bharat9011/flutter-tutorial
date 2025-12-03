@@ -1,0 +1,167 @@
+{
+  "content1": {
+    "content": "Media & Notifications in Flutter",
+    "type": "heading",
+    "typeOf": "Text"
+  },
+  "content2": {
+    "content": "Modern apps often require rich media capabilities and the ability to keep users engaged through notifications. This section covers how to implement audio and video playback, as well as how to handle local and push notifications in Flutter.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content3": {
+    "content": "1. Audio Playback",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content4": {
+    "content": "For audio playback, the `just_audio` package is a popular choice due to its feature-rich API, supporting streaming, caching, and playlists.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content5": {
+    "content": "Setup:",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content6": {
+    "content": "dependencies:\n  just_audio: ^0.9.36",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content7": {
+    "content": "Usage Example:",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content8": {
+    "content": "import 'package:just_audio/just_audio.dart';\n\nclass AudioPlayerWidget extends StatefulWidget {\n  @override\n  _AudioPlayerWidgetState createState() => _AudioPlayerWidgetState();\n}\n\nclass _AudioPlayerWidgetState extends State<AudioPlayerWidget> {\n  late AudioPlayer _player;\n\n  @override\n  void initState() {\n    super.initState();\n    _player = AudioPlayer();\n    _player.setUrl('https://example.com/song.mp3');\n  }\n\n  @override\n  void dispose() {\n    _player.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return IconButton(\n      icon: Icon(Icons.play_arrow),\n      onPressed: _player.play,\n    );\n  }\n}",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content9": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content10": {
+    "content": "2. Video Playback",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content11": {
+    "content": "The `video_player` package is the official plugin for playing videos. It requires a `VideoPlayerController` to manage playback.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content12": {
+    "content": "Setup:",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content13": {
+    "content": "dependencies:\n  video_player: ^2.8.1",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content14": {
+    "content": "Usage Example:",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content15": {
+    "content": "import 'package:video_player/video_player.dart';\n\nclass VideoApp extends StatefulWidget {\n  @override\n  _VideoAppState createState() => _VideoAppState();\n}\n\nclass _VideoAppState extends State<VideoApp> {\n  late VideoPlayerController _controller;\n\n  @override\n  void initState() {\n    super.initState();\n    _controller = VideoPlayerController.networkUrl(\n      Uri.parse('https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4'),\n    )..initialize().then((_) {\n        setState(() {});\n      });\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return _controller.value.isInitialized\n        ? AspectRatio(\n            aspectRatio: _controller.value.aspectRatio,\n            child: VideoPlayer(_controller),\n          )\n        : Container();\n  }\n}",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content16": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content17": {
+    "content": "3. Local Notifications",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content18": {
+    "content": "For scheduling and displaying notifications originating from the app itself, `flutter_local_notifications` is the standard package.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content19": {
+    "content": "Setup:",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content20": {
+    "content": "dependencies:\n  flutter_local_notifications: ^16.3.0",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content21": {
+    "content": "Initialization & Display:",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content22": {
+    "content": "final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();\n\nFuture<void> initNotifications() async {\n  const AndroidInitializationSettings initializationSettingsAndroid = AndroidInitializationSettings('@mipmap/ic_launcher');\n  final InitializationSettings initializationSettings = InitializationSettings(android: initializationSettingsAndroid);\n  await flutterLocalNotificationsPlugin.initialize(initializationSettings);\n}\n\nFuture<void> showNotification() async {\n  const AndroidNotificationDetails androidDetails = AndroidNotificationDetails(\n    'channel_id', 'Channel Name',\n    importance: Importance.max,\n    priority: Priority.high,\n  );\n  const NotificationDetails details = NotificationDetails(android: androidDetails);\n  await flutterLocalNotificationsPlugin.show(0, 'Title', 'Body', details);\n}",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content23": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content24": {
+    "content": "4. Push Notifications (FCM)",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content25": {
+    "content": "Firebase Cloud Messaging (FCM) is the most common way to send push notifications to Flutter apps using `firebase_messaging`.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content26": {
+    "content": "Setup:",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content27": {
+    "content": "dependencies:\n  firebase_core: ^2.24.2\n  firebase_messaging: ^14.7.10",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content28": {
+    "content": "Handling Messages:",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content29": {
+    "content": "void main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Firebase.initializeApp();\n  \n  FirebaseMessaging.onMessage.listen((RemoteMessage message) {\n    print('Got a message whilst in the foreground!');\n    if (message.notification != null) {\n      print('Message also contained a notification: ${message.notification}');\n    }\n  });\n\n  runApp(MyApp());\n}",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content30": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content31": {
+    "content": "Summary",
+    "type": "heading",
+    "typeOf": "Text"
+  },
+  "content32": {
+    "content": "Use `just_audio` for robust audio, `video_player` for video rendering, `flutter_local_notifications` for local alerts, and `firebase_messaging` for remote push notifications. Always handle permissions and platform-specific configurations (AndroidManifest.xml, Info.plist) for these features to work correctly.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content33": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  }
+}

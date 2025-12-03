@@ -1,0 +1,57 @@
+{
+    "content1": {
+        "content": "Handling Offline Scenarios",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "A great app works offline. This involves caching data when online and serving it when offline, as well as queuing actions to be synced later.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Caching Strategies",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Shared Preferences: Good for simple key-value pairs (settings, user flags).\nLocal Database (SQLite/Isar/Hive): Best for structured data (lists of posts, user profiles).\nFile Storage: Good for images and large assets.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content5": {
+        "content": "2. UI Patterns",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "Offline Banner: Show a non-intrusive banner indicating offline mode.\nDisable Actions: Gray out buttons that require internet (e.g., 'Submit').\nEmpty States: If no cache exists, show a friendly 'No Connection' screen.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content7": {
+        "content": "3. Synchronization",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "When the app comes back online, trigger a sync process to send queued data (e.g., offline likes, new posts) to the server.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "Offline support is a key differentiator for high-quality apps. Plan your caching and sync strategy early in development.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

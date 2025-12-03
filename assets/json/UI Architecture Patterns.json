@@ -1,0 +1,47 @@
+{
+    "content1": {
+        "content": "UI Architecture Patterns",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Choosing the right architecture pattern is crucial for maintainability and scalability. Common patterns in Flutter include MVC, MVVM, and Clean Architecture.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. MVVM (Model-View-ViewModel)",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Separates the UI (View) from the business logic (ViewModel). The ViewModel exposes data streams that the View listens to.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "2. Clean Architecture",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": " divides the app into layers: Presentation, Domain, and Data. The Domain layer contains pure business logic and is independent of Flutter.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "There is no 'one size fits all'. Start simple and evolve your architecture as your app grows.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

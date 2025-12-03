@@ -1,0 +1,117 @@
+{
+    "content1": {
+        "content": "Flutter: Power Up Your Custom Widgets with Parameters (Properties)",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "You've learned about StatelessWidget and StatefulWidget, and how to compose them to build UIs. Now, let's explore how to make your custom widgets truly dynamic and reusable by passing data into them using parameters (often called properties).",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "What are Widget Parameters?",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Widget parameters are values you pass to a widget when you create an instance of it. They allow you to configure the widget's appearance, behavior, or the data it displays from its parent widget.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "Text(\n  \"Hello, Flutter!\", // This is a parameter (the data)\n  style: TextStyle(fontSize: 20), // 'style' is another parameter\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "Why are Parameters Essential?",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Reusability: Define a widget once and reuse it in multiple places.\nCustomization: Allow parent widgets to control aspects of their children.\nData Flow: Parameters are a primary way to pass data down the widget tree.\nClearer Widgets: Widgets can be more focused on a specific task.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content20": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content8": {
+        "content": "Defining Parameters in Your Custom Widgets",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Key Parts of a Constructor with Parameters:",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "Key? key: Almost all widget constructors should accept an optional Key.\nNamed Parameters: Use named parameters for clarity.\nrequired Keyword: Use required for mandatory parameters.\nDefault Values: Provide default values for optional parameters.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content11": {
+        "content": "Example: StatelessWidget with Parameters",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content12": {
+        "content": "import 'package:flutter/material.dart';\n\nclass GreetingCard extends StatelessWidget {\n  final String name;\n  final String? greetingMessage;\n  final Color backgroundColor;\n\n  const GreetingCard({\n    Key? key,\n    required this.name,\n    this.greetingMessage = \"Welcome!\",\n    this.backgroundColor = Colors.blueAccent,\n  }) : super(key: key);\n\n  @override\n  Widget build(BuildContext context) {\n    return Container(\n      padding: EdgeInsets.all(20.0),\n      margin: EdgeInsets.all(10.0),\n      decoration: BoxDecoration(\n        color: backgroundColor,\n        borderRadius: BorderRadius.circular(10.0),\n        boxShadow: [\n          BoxShadow(\n            color: Colors.black.withOpacity(0.2),\n            spreadRadius: 1,\n            blurRadius: 5,\n            offset: Offset(0, 3),\n          ),\n        ],\n      ),\n      child: Column(\n        mainAxisSize: MainAxisSize.min,\n        children: <Widget>[\n          Text(\n            greetingMessage!,\n            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold, color: Colors.white),\n          ),\n          SizedBox(height: 10),\n          Text(\n            name,\n            style: TextStyle(fontSize: 20, color: Colors.white70),\n          ),\n        ],\n      ),\n    );\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content21": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content13": {
+        "content": "Example: StatefulWidget with Parameters",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content14": {
+        "content": "import 'package:flutter/material.dart';\n\nclass ClickCounterButton extends StatefulWidget {\n  final String buttonLabel;\n  final int initialCount;\n\n  const ClickCounterButton({\n    Key? key,\n    required this.buttonLabel,\n    this.initialCount = 0,\n  }) : super(key: key);\n\n  @override\n  _ClickCounterButtonState createState() => _ClickCounterButtonState();\n}\n\nclass _ClickCounterButtonState extends State<ClickCounterButton> {\n  late int _currentCount;\n\n  @override\n  void initState() {\n    super.initState();\n    _currentCount = widget.initialCount;\n  }\n\n  void _incrementCounter() {\n    setState(() {\n      _currentCount++;\n    });\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return ElevatedButton(\n      onPressed: _incrementCounter,\n      child: Text('${widget.buttonLabel}: $_currentCount'),\n    );\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content22": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content15": {
+        "content": "Best Practices for Widget Parameters",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content16": {
+        "content": "Immutability: Always declare parameters as final.\nrequired vs. Optional with Defaults: Use required for essential parameters.\nNamed Parameters: Prefer named parameters for clarity.\nKey? key: Always include Key? key in your constructor.\nconst Constructors: Use const constructors when possible.\nType Safety: Use specific types for your parameters.\nDocumentation: Add comments explaining complex parameters.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content23": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content17": {
+        "content": "Conclusion",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content18": {
+        "content": "Parameters are the lifeblood of reusable and configurable widgets in Flutter. By defining clear, well-typed parameters, you can create powerful custom components that form the building blocks of your application.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content19": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

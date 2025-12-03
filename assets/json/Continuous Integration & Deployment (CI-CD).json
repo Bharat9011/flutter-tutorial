@@ -1,0 +1,47 @@
+{
+    "content1": {
+        "content": "Continuous Integration & Deployment (CI/CD)",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Automating your build and release process saves time and reduces errors.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Tools",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "GitHub Actions, Codemagic, and Bitrise are popular CI/CD tools for Flutter.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "2. Workflow",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "A typical workflow: Run tests on every push -> Build release artifacts on tag creation -> Upload to app stores.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "CI/CD allows you to release with confidence and frequency.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

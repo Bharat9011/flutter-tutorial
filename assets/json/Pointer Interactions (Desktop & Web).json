@@ -1,0 +1,52 @@
+{
+    "content1": {
+        "content": "Pointer Interactions (Desktop & Web)",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "On non-touch platforms, pointers behave differently. You have hover states and different cursor types.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Changing Cursor",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Use `MouseRegion` to change the cursor when hovering over a widget.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "MouseRegion(\n  cursor: SystemMouseCursors.text,\n  child: Text('Selectable Text'),\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Hover Effects",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Update UI state on `onEnter` and `onExit`.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Adapting to pointer devices is crucial for cross-platform apps.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

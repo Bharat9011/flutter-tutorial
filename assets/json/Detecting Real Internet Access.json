@@ -1,0 +1,62 @@
+{
+    "content1": {
+        "content": "Detecting Real Internet Access",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Being connected to a Wi-Fi network doesn't guarantee internet access (e.g., a router without an uplink). To confirm real internet access, you must ping a reliable server.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Using InternetAddress.lookup",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "You can use Dart's built-in `InternetAddress.lookup` to check if a domain can be resolved.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "import 'dart:io';\n\nFuture<bool> hasInternet() async {\n  try {\n    final result = await InternetAddress.lookup('google.com');\n    return result.isNotEmpty && result[0].rawAddress.isNotEmpty;\n  } on SocketException catch (_) {\n    return false;\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Using internet_connection_checker_plus",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "For a more robust solution, use the `internet_connection_checker_plus` package, which handles timeouts and multiple checks automatically.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "dependencies:\n  internet_connection_checker_plus: ^2.0.0",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content9": {
+        "content": "bool result = await InternetConnection().hasInternetAccess;\nif (result) {\n  print('Yay! We have internet!');\n} else {\n  print('No internet access');\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content10": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "Always distinguish between network connectivity (Wi-Fi/Mobile connected) and actual internet access (can reach server) to provide accurate feedback to the user.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content12": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

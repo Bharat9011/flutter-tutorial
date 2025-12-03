@@ -1,0 +1,57 @@
+{
+    "content1": {
+        "content": "Bubbling & Propagation",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "In Flutter, notifications are a way to send data up the widget tree. This is different from system notifications.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Notification Class",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "You can extend the `Notification` class to create custom events.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "class MyNotification extends Notification {\n  final String msg;\n  MyNotification(this.msg);\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. NotificationListener",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Wrap a widget subtree in `NotificationListener` to catch notifications bubbling up from its descendants.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "NotificationListener<MyNotification>(\n  onNotification: (notification) {\n    print(notification.msg);\n    return true; // Stop bubbling\n  },\n  child: ...\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content9": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "This mechanism is used internally by scrollables (`ScrollNotification`) and can be useful for custom widget communication.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

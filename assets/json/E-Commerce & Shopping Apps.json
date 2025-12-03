@@ -1,0 +1,57 @@
+{
+    "content1": {
+        "content": "E-Commerce & Shopping Apps",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Building an e-commerce app involves managing complex state for products, carts, and user sessions.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Product Listings",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Use `GridView.builder` for efficient product grids. Implement search and filter logic on the backend or using local state.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "2. Cart Management",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "Use a state management solution like Provider or Riverpod to persist cart items across screens.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "3. Payments",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Integrate payment gateways like Stripe or PayPal using their official Flutter SDKs.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "Focus on a smooth checkout flow to reduce cart abandonment.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

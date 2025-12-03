@@ -1,0 +1,57 @@
+{
+    "content1": {
+        "content": "State Management for Connectivity",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Connectivity status is a global state that affects the entire app. It should be managed centrally and exposed to UI components.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Using Provider",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Create a `ConnectivityService` class that listens to the stream and notifies listeners.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "class ConnectivityService with ChangeNotifier {\n  ConnectivityResult _status = ConnectivityResult.none;\n  ConnectivityResult get status => _status;\n\n  ConnectivityService() {\n    Connectivity().onConnectivityChanged.listen((List<ConnectivityResult> result) {\n      _status = result.first;\n      notifyListeners();\n    });\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Using Riverpod",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Riverpod makes it easy to expose a stream as a provider.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "final connectivityProvider = StreamProvider<List<ConnectivityResult>>((ref) {\n  return Connectivity().onConnectivityChanged;\n});",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content9": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "Centralizing connectivity logic prevents code duplication and ensures consistent behavior across the app.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

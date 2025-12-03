@@ -1,0 +1,62 @@
+{
+    "content1": {
+        "content": "Firebase Authentication",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Firebase Authentication provides backend services to authenticate users via passwords, phone numbers, and popular federated identity providers like Google, Facebook, and Twitter.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Setup",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Add `firebase_auth` to your `pubspec.yaml`:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "dependencies:\n  firebase_auth: ^4.16.0",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Email/Password Sign-In",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "import 'package:firebase_auth/firebase_auth.dart';\n\nFuture<User?> signIn(String email, String password) async {\n  try {\n    final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(\n      email: email,\n      password: password,\n    );\n    return credential.user;\n  } on FirebaseAuthException catch (e) {\n    if (e.code == 'user-not-found') {\n      print('No user found for that email.');\n    } else if (e.code == 'wrong-password') {\n      print('Wrong password provided for that user.');\n    }\n    return null;\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content8": {
+        "content": "3. Google Sign-In",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "For Google Sign-In, you'll also need the `google_sign_in` package and additional configuration in the Firebase Console and your Android/iOS projects.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "Firebase Auth simplifies user management, handling secure tokens, password resets, and account linking automatically.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content12": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

@@ -1,0 +1,57 @@
+{
+    "content1": {
+        "content": "Entertainment & Media",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Media apps consume content like video, audio, and articles.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Video Streaming",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Use `video_player` for basic playback or specialized packages for HLS/DASH streaming.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "2. Audio Players",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "Use `just_audio` or `audioplayers` for music and podcasts. Handle background playback services.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "3. Content Management",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Organize large libraries of content efficiently. Implement 'Favorites' and 'Watch Later' lists.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "Ensure smooth playback and handle network interruptions gracefully.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

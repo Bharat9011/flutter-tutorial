@@ -1,0 +1,211 @@
+{
+    "content1": {
+        "content": "Flutter Forms & Validation",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Forms are essential for collecting user input—logins, sign-ups, surveys, and more. Flutter makes it easy to create forms with built-in widgets like `Form`, `TextFormField`, and validation.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "📌 Understanding Flutter Forms",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "🔹 What is a Form?",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "A form is a collection of input fields (text, checkboxes, dropdowns) where users enter data.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "🔹 Key Widgets",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": {
+            "body": {
+                "row1": [
+                    "Widget",
+                    "Purpose"
+                ],
+                "row2": [
+                    "`Form`",
+                    "Container for multiple form fields"
+                ],
+                "row3": [
+                    "`TextFormField`",
+                    "Input field with validation support"
+                ],
+                "row4": [
+                    "`GlobalKey<FormState>`",
+                    "Used to control & validate the form"
+                ]
+            }
+        },
+        "type": "Table",
+        "typeOf": "Table"
+    },
+    "content38": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content9": {
+        "content": "🏗️ Building a Basic Form",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "🔸 Step 1: Create a Flutter Project",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "flutter create form_demo\ncd form_demo",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content12": {
+        "content": "🔸 Step 2: Replace `lib/main.dart`",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content13": {
+        "content": "import 'package:flutter/material.dart'; \n// The main function that starts the Flutter application.\nvoid main() => runApp(MyApp()); \n// This is the root widget of the application. It's a StatelessWidget because its configuration is immutable.\nclass MyApp extends StatelessWidget { \n\t@override \n\t// The build method describes the part of the user interface represented by this widget.\n\tWidget build(BuildContext context) { \n\t\t// MaterialApp is a widget that wraps a number of widgets that are commonly required for an application implementing Material Design.\n\t\treturn MaterialApp(\n\t\t\t// The home property defines the widget that is displayed as the homepage of the application.\n\t\t\thome: Scaffold(\n\t\t\t\t// Scaffold implements the basic material design visual layout structure.\n\t\t\t\tappBar: AppBar(\n\t\t\t\t\t// AppBar is a horizontal bar typically shown at the top of the Scaffold.\n\t\t\t\t\ttitle: Text(\"Flutter Form Demo\"), // The title displayed in the AppBar.\n\t\t\t\t),\n\t\t\t\t// The body property holds the main content of the Scaffold, here it's our custom form.\n\t\t\t\tbody: MyForm(),\n\t\t\t),\n\t\t);\n\t}\n}\n\n// StatefulWidget is a widget that has mutable state that can change over its lifetime.\nclass MyForm extends StatefulWidget { \n\t@override \n\t// Creates the mutable state for this widget.\n\t_MyFormState createState() => _MyFormState();\n}\n\n// This is the state class for the MyForm widget.\nclass _MyFormState extends State<MyForm> { \n\t// Key to identify and control the Form widget. It allows us to validate, reset, or save the form.\n\tfinal _formKey = GlobalKey<FormState>();\n\n\t// Variables to store the user's input for email and password.\n\tString _email = \"\";\n\tString _password = \"\";\n\n\t@override \n\t// The build method describes the part of the user interface represented by this widget.\n\tWidget build(BuildContext context) { \n\t\t// Padding widget adds empty space around its child.\n\t\treturn Padding(\n\t\t\tpadding: EdgeInsets.all(16.0), // Adds 16 logical pixels of padding on all sides.\n\t\t\t// Form is a container for grouping together several form field widgets.\n\t\t\tchild: Form(\n\t\t\t\tkey: _formKey, // Assigns the global key to this Form widget.\n\t\t\t\t// Column arranges its children in a vertical line.\n\t\t\t\tchild: Column(\n\t\t\t\t\tchildren: [\n\t\t\t\t\t\t// TextFormField is a Material Design text field with built-in validation and decoration.\n\t\t\t\t\t\tTextFormField(\n\t\t\t\t\t\t\t// InputDecoration provides visual cues for the text field (label, hint, border).\n\t\t\t\t\t\t\tdecoration: InputDecoration(\n\t\t\t\t\t\t\t\tlabelText: \"Email\", // The label text that appears above the input field.\n\t\t\t\t\t\t\t\thintText: \"Enter your email\", // The hint text displayed when the input field is empty.\n\t\t\t\t\t\t\t\tborder: OutlineInputBorder(), // Creates a rounded rectangular border around the input field.\n\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\t// Validator function that is called on form submission to check the validity of the input.\n\t\t\t\t\t\t\tvalidator: (value) {\n\t\t\t\t\t\t\t\tif (value == null || value.isEmpty) { // Checks if the input value is null or empty.\n\t\t\t\t\t\t\t\t\treturn \"Please enter an email\"; // Returns an error message if the condition is true.\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\tif (!value.contains(\"@\")) { // Checks if the input value contains the \"@\" symbol for basic email validation.\n\t\t\t\t\t\t\t\t\treturn \"Enter a valid email\"; // Returns an error message if the condition is true.\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\treturn null; // Returns null if the input is valid (no error).\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t// Called when the form field changes and is saved. Here, we store the entered email.\n\t\t\t\t\t\t\tonSaved: (value) => _email = value!,\n\t\t\t\t\t\t),\n\n\t\t\t\t\t\tSizedBox(height: 20), // Adds a vertical space of 20 logical pixels between the form fields.\n\n\t\t\t\t\t\t// Another TextFormField for the password input.\n\t\t\t\t\t\tTextFormField(\n\t\t\t\t\t\t\tobscureText: true, // Hides the entered text, commonly used for passwords.\n\t\t\t\t\t\t\tdecoration: InputDecoration(\n\t\t\t\t\t\t\t\tlabelText: \"Password\", // The label text for the password field.\n\t\t\t\t\t\t\t\thintText: \"Enter your password\", // The hint text for the password field.\n\t\t\t\t\t\t\t\tborder: OutlineInputBorder(), // Border for the password field.\n\t\t\t\t\t\t\t),\n\t\t\t\t\t\t\t// Validator for the password field.\n\t\t\t\t\t\t\tvalidator: (value) {\n\t\t\t\t\t\t\t\tif (value == null || value.isEmpty) { // Checks if the password field is empty.\n\t\t\t\t\t\t\t\t\treturn \"Please enter a password\"; // Error message for an empty password.\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\tif (value.length < 6) { // Checks if the password length is less than 6 characters.\n\t\t\t\t\t\t\t\t\treturn \"Password must be at least 6 characters\"; // Error message for a short password.\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t\treturn null; // No error for a valid password.\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\t// Called when the password field is saved.\n\t\t\t\t\t\t\tonSaved: (value) => _password = value!,\n\t\t\t\t\t\t),\n\n\t\t\t\t\t\tSizedBox(height: 20), // Adds spacing before the submit button.\n\n\t\t\t\t\t\t// ElevatedButton is a Material Design elevated button.\n\t\t\t\t\t\tElevatedButton(\n\t\t\t\t\t\t\t// Called when the button is pressed.\n\t\t\t\t\t\t\tonPressed: () {\n\t\t\t\t\t\t\t\t// Validates the form using the global key.\n\t\t\t\t\t\t\t\tif (_formKey.currentState!.validate()) {\n\t\t\t\t\t\t\t\t\t_formKey.currentState!.save(); // Saves the form data, triggering the onSaved callbacks of the fields.\n\t\t\t\t\t\t\t\t\t// Shows a SnackBar to provide feedback to the user.\n\t\t\t\t\t\t\t\t\tScaffoldMessenger.of(context).showSnackBar(\n\t\t\t\t\t\t\t\t\t\tSnackBar(content: Text(\"Form Submitted!\")), // The content of the SnackBar.\n\t\t\t\t\t\t\t\t\t);\n\t\t\t\t\t\t\t\t\t// Prints the submitted email and password to the console.\n\t\t\t\t\t\t\t\t\tprint(\"Email: $_email, Password: $_password\");\n\t\t\t\t\t\t\t\t}\n\t\t\t\t\t\t\t},\n\t\t\t\t\t\t\tchild: Text(\"Submit\"), // The text displayed on the button.\n\t\t\t\t\t\t),\n\t\t\t\t\t],\n\t\t\t\t),\n\t\t\t),\n\t\t);\n\t}\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content14": {
+        "content": "🔸 Step 3: Run the App",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content15": {
+        "content": "flutter run",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content39": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content16": {
+        "content": "🔍 How Form Validation Works",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content30":{
+        "content": "validator` Function",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content17": {
+        "content": "Checks if input is valid.\nReturns `String` (error message) if invalid.\nReturns `null` if valid.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content32":{
+        "content": "`onSaved` Function",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content18": {
+        "content": "Saves the input value when the form is submitted.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "contetn33": {
+        "content": "_formKey.currentState!.validate()",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content19": {
+        "content": "Checks all validators in the form.\nReturns `true` if all fields are valid.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "contetn34":{
+        "content": "_formKey.currentState!.save()",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content20": {
+        "content": "Calls `onSaved` for each field.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content40": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content21": {
+        "content": "⚠️ Common Mistakes & Best Practices",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content22": {
+        "content": "❌ Common Mistakes",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content23": {
+        "content": "1. Forgetting `GlobalKey<FormState>` → Form won't validate.\n2. Not calling `save()` → Data won't be stored.\n3. Hardcoding error messages → Use localization for multilingual apps.\n4. Ignoring keyboard types → Use `keyboardType: TextInputType.email` for emails.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content24": {
+        "content": "✅ Best Practices",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content25": {
+        "content": "Use `TextFormField` instead of `TextField` (for built-in validation).\nAdd `autovalidateMode` for real-time validation:",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content35":{
+        "content" : "autovalidateMode: AutovalidateMode.onUserInteraction",
+        "type":"code",
+        "typeOf":"code"
+    },
+    "content36": {
+        "content": "Use `SnackBar` to show success/error messages.\nTrim whitespace before validation:",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content37":{
+        "content" : "validator: (value) {\n     if (value == null || value.trim().isEmpty) {\n       return \"Field cannot be empty\";\n     }\n   }",
+        "type":"code",
+        "typeOf":"code"
+    },
+    "content41": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content26": {
+        "content": "🔑 Key Takeaways",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content27": {
+        "content": "1. `Form` + `TextFormField` = Best combo for input handling.\n2. `validator` checks input, `onSaved` stores it.\n3. `GlobalKey<FormState>` controls form validation.\n4. Always validate on submission to prevent bad data.\n5. Use `SnackBar` for user feedback.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content31": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

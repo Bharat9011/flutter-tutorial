@@ -1,0 +1,52 @@
+{
+    "content1": {
+        "content": "Handling Errors & Exceptions",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Graceful error handling improves user experience and helps you diagnose issues in production.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Try-Catch",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Use `try-catch` blocks to handle synchronous and asynchronous errors.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "try {\n  await apiCall();\n} catch (e) {\n  print('Error: $e');\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Global Error Handling",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Catch errors that aren't caught by try-catch blocks using `FlutterError.onError` and `PlatformDispatcher.instance.onError`.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Always show a user-friendly message when something goes wrong, instead of crashing the app.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

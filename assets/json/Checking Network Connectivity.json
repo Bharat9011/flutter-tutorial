@@ -1,0 +1,72 @@
+{
+    "content1": {
+        "content": "Checking Network Connectivity in Flutter",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Before performing any network operation, it is essential to check if the device is connected to a network. The `connectivity_plus` package is the standard way to do this in Flutter.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. Setup",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Add the dependency to your `pubspec.yaml`:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "dependencies:\n  connectivity_plus: ^6.0.3",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. Android Permissions",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Ensure you have the following permission in `android/app/src/main/AndroidManifest.xml`:",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\" />",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content9": {
+        "content": "3. Checking Status",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "You can check the current connectivity status using `Connectivity().checkConnectivity()`.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "import 'package:connectivity_plus/connectivity_plus.dart';\n\nFuture<void> checkConnectivity() async {\n  final List<ConnectivityResult> connectivityResult = await (Connectivity().checkConnectivity());\n\n  if (connectivityResult.contains(ConnectivityResult.mobile)) {\n    print('Connected to Mobile Network');\n  } else if (connectivityResult.contains(ConnectivityResult.wifi)) {\n    print('Connected to Wi-Fi');\n  } else if (connectivityResult.contains(ConnectivityResult.none)) {\n    print('No Connection');\n  }\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content12": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content13": {
+        "content": "Always check for connectivity before making requests to avoid unnecessary errors and provide a better user experience.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content14": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

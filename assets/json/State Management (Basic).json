@@ -1,0 +1,215 @@
+{
+    "content1": {
+        "content": "Flutter State Management",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "State management is how your app stores and updates data that can change over time (e.g., user input, API responses). Choosing the right approach is crucial for building scalable apps.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "📌 What is State? (The Grocery List Analogy)",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "Imagine a shopping list:\nInitial state: [\"Apples\", \"Bread\"]\nNew item added: [\"Apples\", \"Bread\", \"Milk\"] → State changed!",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content6": {
+        "content": "In Flutter:\nState = Data that can change and affect the UI.\nState Management = How you handle these changes.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content38": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content7": {
+        "content": "🔹 Types of State",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": {
+            "body": {
+                "row1": [
+                    "Type",
+                    "Description",
+                    "Example"
+                ],
+                "row2": [
+                    "Local (Ephemeral)",
+                    "Short-lived, used in a single widget.",
+                    "TextField input, checkbox toggle"
+                ],
+                "row3": [
+                    "Global (App State)",
+                    "Shared across multiple screens.",
+                    "User auth, theme preference"
+                ]
+            }
+        },
+        "type": "Table",
+        "typeOf": "Table"
+    },
+    "content39": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content9": {
+        "content": "🏗️ State Management Approaches",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "1. setState (Simplest Form)",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content11": {
+        "content": "Best for local state in a single widget.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content12": {
+        "content": "Example: Counter App",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content13": {
+        "content": "import 'package:flutter/material.dart';\n\n// The main function that starts the Flutter application.\nvoid main() => runApp(MyApp());\n\n// This is the root widget of the application. It's a StatelessWidget because its configuration is immutable.\nclass MyApp extends StatelessWidget {\n\t@override\n\t// The build method describes the part of the user interface represented by this widget.\n\tWidget build(BuildContext context) {\n\t\t// MaterialApp is a widget that wraps a number of widgets that are commonly required for an application implementing Material Design.\n\t\treturn MaterialApp(home: CounterScreen()); // Sets the CounterScreen as the home page of the application.\n\t}\n}\n\n// StatefulWidget is a widget that has mutable state that can change over its lifetime.\nclass CounterScreen extends StatefulWidget {\n\t@override\n\t// Creates the mutable state for this widget.\n\t_CounterScreenState createState() => _CounterScreenState();\n}\n\n// This is the state class for the CounterScreen widget.\nclass _CounterScreenState extends State<CounterScreen> {\n\t// State variable to hold the counter value, initialized to 0.\n\tint _counter = 0;\n\n\t// Method to increment the counter value.\n\tvoid _incrementCounter() {\n\t\t// setState is called to notify the Flutter framework that the internal state of this widget has changed, triggering a UI rebuild.\n\t\tsetState(() {\n\t\t\t_counter++; // Increments the counter variable.\n\t\t});\n\t}\n\n\t@override\n\t// The build method describes the part of the user interface represented by this widget.\n\tWidget build(BuildContext context) {\n\t\t// Scaffold implements the basic material design visual layout structure.\n\t\treturn Scaffold(\n\t\t\t// The body property holds the main content of the Scaffold.\n\t\t\tbody: Center(\n\t\t\t\t// Center widget centers its child within itself.\n\t\t\t\tchild: Column(\n\t\t\t\t\t// Column widget arranges its children in a vertical line.\n\t\t\t\t\tmainAxisAlignment: MainAxisAlignment.center, // Centers the children along the main axis (vertically).\n\t\t\t\t\tchildren: [\n\t\t\t\t\t\t// Text widget to display the current counter value.\n\t\t\t\t\t\tText(\"Counter: \\$_counter\"),\n\t\t\t\t\t\t// ElevatedButton is a Material Design elevated button.\n\t\t\t\t\t\tElevatedButton(\n\t\t\t\t\t\t\t// onPressed is a callback function that is executed when the button is pressed.\n\t\t\t\t\t\t\tonPressed: _incrementCounter, // Calls the _incrementCounter method when the button is pressed.\n\t\t\t\t\t\t\t// The child widget displayed within the ElevatedButton.\n\t\t\t\t\t\t\tchild: Text(\"Increment\"),\n\t\t\t\t\t\t),\n\t\t\t\t\t],\n\t\t\t\t),\n\t\t\t),\n\t\t);\n\t}\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content14": {
+        "content": "How setState Works\n1. Updates the variable (_counter++).\n2. Triggers a UI rebuild to reflect changes.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content15": {
+        "content": "❌ Limitation: Not scalable for complex apps (state can't be shared easily).",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content16": {
+        "content": "2. Provider (Recommended for Global State)",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content17": {
+        "content": "A simple yet powerful way to manage app-wide state.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content18": {
+        "content": "Step 1: Add provider to pubspec.yaml",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content19": {
+        "content": "dependencies:\n  flutter:\n    sdk: flutter\n  provider: ^6.0.5",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content20": {
+        "content": "Run flutter pub get.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content21": {
+        "content": "Step 2: Create a Model (Counter Example)",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content22": {
+        "content": "import 'package:flutter/material.dart';\n\n// CounterModel is a class that extends ChangeNotifier, making it able to notify its listeners about changes.\nclass CounterModel extends ChangeNotifier {\n\t// Private variable to hold the counter value, initialized to 0.\n\tint _count = 0;\n\n\t// Getter method to access the current value of the counter.\n\tint get count => _count;\n\n\t// Method to increment the counter value.\n\tvoid increment() {\n\t\t_count++;\n\t\t// notifyListeners() is a method from ChangeNotifier that tells all the widgets listening to this model to rebuild themselves because the state has changed.\n\t\tnotifyListeners();\n\t}\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content23": {
+        "content": "Step 3: Wrap App with ChangeNotifierProvider",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content24": {
+        "content": "void main() {\n\trunApp(\n\t\t// ChangeNotifierProvider is a provider from the provider package that provides an instance of a ChangeNotifier to its descendants.\n\t\tChangeNotifierProvider(\n\t\t\t// create specifies how to create the value being provided. Here, it creates a new instance of CounterModel.\n\t\t\tcreate: (context) => CounterModel(),\n\t\t\t// child is the widget that will have access to the provided CounterModel instance.\n\t\t\tchild: MyApp(),\n\t\t),\n\t);\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content25": {
+        "content": "Step 4: Access State in Any Widget",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content26": {
+        "content": "// Reading state\nfinal counter = Provider.of<CounterModel>(context);  \n\n// Updating state\nElevatedButton(\n  onPressed: () => counter.increment(),\n  child: Text(\"Increment (${counter.count})\"),\n),",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content27": {
+        "content": "✅ Benefits:\nNo need to manually pass data between widgets.\nEfficient rebuilds (only affected widgets update).",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content40": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content28": {
+        "content": "⚠️ Common Mistakes & Best Practices",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content29": {
+        "content": "❌ Common Mistakes",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content30": {
+        "content": "1. Overusing setState → Causes unnecessary rebuilds.\n2. Not disposing providers → Can lead to memory leaks.\n3. Putting Provider too high in the tree → Wastes resources.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content31": {
+        "content": "✅ Best Practices",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content32": {
+        "content": "Use setState for local UI state only.\nPrefer Provider for shared state.\nDispose resources properly (for streams, animations).\nUse Consumer for granular rebuilds:",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content42":{
+        "content": "Consumer<CounterModel>(\n  builder: (context, counter, child) => Text(\"${counter.count}\"),\n)\n",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content41": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content33": {
+        "content": "🔑 Key Takeaways",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content34": {
+        "content": "1. setState → Best for local, widget-specific state.\n2. Provider → Best for global, app-wide state.\n3. notifyListeners() → Tells widgets to rebuild.\n4. Avoid unnecessary state management → Start simple, upgrade when needed.",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content37": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

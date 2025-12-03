@@ -1,0 +1,52 @@
+{
+    "content1": {
+        "content": "InkWell & Material Touch Responses",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "For Material Design apps, users expect a visual ripple effect when touching interactive elements. `InkWell` provides this effect.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. InkWell",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Wrap widgets in an `InkWell` to add a ripple. Note: `InkWell` must have a `Material` widget as an ancestor to draw the ink on.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "Material(\n  color: Colors.blue,\n  child: InkWell(\n    onTap: () {},\n    child: Container(padding: EdgeInsets.all(20), child: Text('Ripple Button')),\n  ),\n)",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "2. InkResponse",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "Similar to `InkWell` but allows the ripple to extend beyond the bounds of the widget (often used for circular icons).",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content9": {
+        "content": "Use `InkWell` for rectangular areas and `InkResponse` for non-rectangular or unbounded ripples to adhere to Material Design guidelines.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

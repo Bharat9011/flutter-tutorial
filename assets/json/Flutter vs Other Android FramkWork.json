@@ -1,0 +1,308 @@
+{
+  "content1": {
+    "content": "🔍 Flutter vs Other Android Frameworks – Beginner’s Guide",
+    "type": "heading",
+    "typeOf": "Text"
+  },
+  "content2": {
+    "content": "📖 Introduction",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content3": {
+    "content": "There are multiple ways to build Android apps:",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content4": {
+    "content": {
+      "body": {
+        "row1": [
+          "Framework",
+          "Language",
+          "Cross-platform?",
+          "Performance"
+        ],
+        "row2": [
+          "Flutter",
+          "Dart",
+          "✅ Yes",
+          "🚀 High"
+        ],
+        "row3": [
+          "Native Android",
+          "Java/Kotlin",
+          "❌ No",
+          "⚡ Very High"
+        ],
+        "row4": [
+          "React Native",
+          "JavaScript",
+          "✅ Yes",
+          "⚠️ Medium-High"
+        ]
+      }
+    },
+    "type": "Table",
+    "typeOf": "Table"
+  },
+  "content5": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content6": {
+    "content": "🧠 Real-World Analogy",
+    "type": "heading",
+    "typeOf": "Text"
+  },
+  "content8": {
+    "content": "Imagine you're building a restaurant app:",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content9": {
+    "content": "Native Android (Java/Kotlin): You hire different chefs for Android and iOS. Each one speaks a different language (Java vs Swift). More control, but double the work.\nReact Native: One chef makes dishes that work in both restaurants, but sometimes needs help from the other chef for platform-specific stuff.\nFlutter: You hire a robot chef (Dart engine) who makes consistent dishes for both restaurants with the same speed and look 🍽️ — no need for two teams.",
+    "type": "points",
+    "typeOf": "List"
+  },
+  "content10": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content11": {
+    "content": "🧪 What Makes Flutter Unique?",
+    "type": "heading",
+    "typeOf": "Text"
+  },
+  "content12": {
+    "content": {
+      "body": {
+        "row1": [
+          "Feature",
+          "Flutter",
+          "React Native",
+          "Native Android"
+        ],
+        "row2": [
+          "UI Rendering",
+          "Own rendering engine (Skia)",
+          "Uses native components",
+          "Native components"
+        ],
+        "row3": [
+          "Codebase",
+          "Single for iOS & Android",
+          "Single",
+          "Separate for each"
+        ],
+        "row4": [
+          "UI Speed",
+          "Smooth at 60–120 fps",
+          "May lag with complex UI",
+          "Very smooth"
+        ],
+        "row5": [
+          "Learning Curve",
+          "Easy with Dart",
+          "Easy if you know JS",
+          "Medium"
+        ],
+        "row6": [
+          "Hot Reload",
+          "Yes 🔥",
+          "Yes 🔥",
+          "Limited"
+        ],
+        "row7": [
+          "Community",
+          "Large",
+          "Large",
+          "Largest"
+        ]
+      }
+    },
+    "type": "Table",
+    "typeOf": "Table"
+  },
+  "content13": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content14": {
+    "content": "⚙️ Step-by-Step Guide – \"Counter App\" in Flutter vs Native",
+    "type": "heading",
+    "typeOf": "Text"
+  },
+  "content15": {
+    "content": "🟢 Flutter Setup",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content16": {
+    "content": "1. Install Flutter\n2. Create Flutter App\n3. Edit main.dart\n4. Run the app",
+    "type": "points",
+    "typeOf": "List"
+  },
+  "content17": {
+    "content": "import 'package:flutter/material.dart';\n\nvoid main() => runApp(MyApp());\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      title: 'Flutter Counter',\n      home: CounterScreen(),\n    );\n  }\n}\n\nclass CounterScreen extends StatefulWidget {\n  @override\n  _CounterScreenState createState() => _CounterScreenState();\n}\n\nclass _CounterScreenState extends State<CounterScreen> {\n  int _count = 0;\n\n  void _increment() {\n    setState(() {\n      _count++;\n    });\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: Text('Flutter Counter')),\n      body: Center(\n        child: Text('Count: $_count', style: TextStyle(fontSize: 30)),\n      ),\n      floatingActionButton: FloatingActionButton(\n        onPressed: _increment,\n        child: Icon(Icons.add),\n      ),\n    );\n  }\n}",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content18": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content19": {
+    "content": "🟠 Native Android (Kotlin) – Summary Version",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content20": {
+    "content": "class MainActivity : AppCompatActivity() {\n    var count = 0\n    override fun onCreate(savedInstanceState: Bundle?) {\n        super.onCreate(savedInstanceState)\n        setContentView(R.layout.activity_main)\n\n        val counterText = findViewById<TextView>(R.id.counterText)\n        val button = findViewById<Button>(R.id.button)\n\n        button.setOnClickListener {\n            count++\n            counterText.text = \"Count: $count\"\n        }\n    }\n}",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content21": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content22": {
+    "content": "🔵 React Native Version",
+    "type": "sub-heading",
+    "typeOf": "Text"
+  },
+  "content23": {
+    "content": "import React, { useState } from 'react';\nimport { View, Text, Button, StyleSheet } from 'react-native';\n\nconst App = () => {\n  const [count, setCount] = useState(0);\n\n  return (\n    <View style={styles.container}>\n      <Text style={styles.text}>Count: {count}</Text>\n      <Button title=\"Increase\" onPress={() => setCount(count + 1)} />\n    </View>\n  );\n};\n\nconst styles = StyleSheet.create({\n  container: { flex: 1, justifyContent: 'center', alignItems: 'center' },\n  text: { fontSize: 30 },\n});\n\nexport default App;",
+    "type": "code",
+    "typeOf": "code"
+  },
+  "content24": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content25": {
+    "content": "⚠️ Common Mistakes",
+    "type": "heading",
+    "typeOf": "Text"
+  },
+  "content26": {
+    "content": {
+      "body": {
+        "row1": [
+          "Mistake",
+          "In Flutter",
+          "In Other Frameworks"
+        ],
+        "row2": [
+          "\nForgetting `setState()`",
+          "Causes UI to not updatedc",
+          "Similar in React Native"
+        ],
+        "row3": [
+          "Heavy logic in UI code",
+          "Keep logic separate in Provider or BLoC",
+          "Same applies in React/Native"
+        ],
+        "row4": [
+          "Not managing dependencies",
+          "Use `pubspec.yaml` carefully",
+          "Same for Gradle (native) or npm/yarn (React)"
+        ],
+        "row5": [
+          "UI mismatch on platforms",
+          "Flutter avoids this by default",
+          "React Native & Native need testing"
+        ]
+      }
+    },
+    "type": "Table",
+    "typeOf": "Table"
+  },
+  "content27": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content28": {
+    "content": "✅ Best Practices",
+    "type": "heading",
+    "typeOf": "Text"
+  },
+  "content29": {
+    "content": "Use Provider or Riverpod for state management in Flutter\nKeep business logic separate from UI\nUse custom widgets to break down large UIs\nTest on both Android & iOS if using cross-platform tools\nPrefer stateless widgets when possible for performance\nUse async/await and `FutureBuilder` for data fetching",
+    "type": "points",
+    "typeOf": "List"
+  },
+  "content30": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content31": {
+    "content": "📌 Key Takeaways",
+    "type": "heading",
+    "typeOf": "Text"
+  },
+  "content32": {
+    "content": {
+      "body": {
+        "row1": [
+          "Topic ",
+          "Flutter Summary"
+        ],
+        "row2": [
+          "Language ",
+          "Dart"
+        ],
+        "row3": [
+          "Cross-platform ",
+          "✅ Yes (iOS, Android, Web, Desktop)"
+        ],
+        "row4": [
+          "UI Performance ",
+          " Very smooth with own rendering engine"
+        ],
+        "row5": [
+          "Setup Time",
+          "Minimal, especially with VS code"
+        ],
+        "row6": [
+          "Best For ",
+          "Fast, beautiful UIs on multiple platforms"
+        ],
+        "row7": [
+          "Learning Curve ",
+          " Easy to moderate"
+        ]
+      }
+    },
+    "type": "Table",
+    "typeOf": "Table"
+  },
+  "content33": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  },
+  "content34": {
+    "content": "🏁 Conclusion",
+    "type": "heading",
+    "typeOf": "Text"
+  },
+  "content35": {
+    "content": "If you're a beginner and want to build apps for both iOS & Android with one codebase, and amazing UI, Flutter is the best starting point.",
+    "type": "paragraph",
+    "typeOf": "Text"
+  },
+  "content36": {
+    "content": "break",
+    "type": "break",
+    "typeOf": "break"
+  }
+}

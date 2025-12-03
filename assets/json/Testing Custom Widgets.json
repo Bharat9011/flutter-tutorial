@@ -1,0 +1,142 @@
+{
+    "content1": {
+        "content": "Flutter: Effectively Testing Your Custom Widgets",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "Creating custom widgets is a cornerstone of Flutter development, but how do you ensure these custom pieces work correctly and reliably? This article guides you through testing your custom Flutter widgets.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "Why Test Custom Widgets?",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Reliability & Correctness\nPrevent Regressions\nEasier Refactoring\nDocumentation\nFaster Iteration",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content5": {
+        "content": "Types of Tests for Custom Widgets",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content6": {
+        "content": "Widget Tests (Primary Focus)\nUnit Tests (for Widget Logic)\nGolden File Tests (Visual Testing)",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content7": {
+        "content": "Setting Up Widget Tests",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "import 'package:flutter/material.dart';\nimport 'package:flutter_test/flutter_test.dart';\nimport 'package:your_app/widgets/my_custom_button.dart';\n\nvoid main() {\n  group('MyCustomButton Tests', () {\n    testWidgets('Renders correctly with default label', (WidgetTester tester) async {\n      // Test logic\n    });\n  });\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content30": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content9": {
+        "content": "Key Tools in Widget Testing",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content10": {
+        "content": "testWidgets() - Defines a widget test case\nWidgetTester - Primary utility for interactions\ntester.pumpWidget() - Renders widgets\ntester.tap() - Simulates taps\nFinder - Locates widgets in the tree\nexpect() - Makes assertions",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content31": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    },
+    "content11": {
+        "content": "Testing Different Aspects of Custom Widgets",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content12": {
+        "content": "1. Rendering and Initial State",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content13": {
+        "content": "// Example: StyledLabel widget test\ntestWidgets('StyledLabel renders with correct text', (WidgetTester tester) async {\n  await tester.pumpWidget(MaterialApp(home: StyledLabel(text: 'Hello')));\n  expect(find.text('Hello'), findsOneWidget);\n  Text textWidget = tester.widget(find.text('Hello'));\n  expect(textWidget.style?.color, Colors.black);\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content14": {
+        "content": "2. Interaction and Callbacks",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content15": {
+        "content": "// Example: ActionButton test\ntestWidgets('ActionButton calls onPressed when tapped', (tester) async {\n  bool pressed = false;\n  await tester.pumpWidget(MaterialApp(\n    home: ActionButton(\n      label: 'Tap', \n      onPressed: () => pressed = true\n    )\n  ));\n  await tester.tap(find.byType(ElevatedButton));\n  await tester.pump();\n  expect(pressed, isTrue);\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content16": {
+        "content": "3. State Changes (for StatefulWidgets)",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content17": {
+        "content": "// Example: Counter widget test\ntestWidgets('MyCounter increments count', (tester) async {\n  await tester.pumpWidget(MaterialApp(home: MyCounter()));\n  expect(find.text('Count: 0'), findsOneWidget);\n  await tester.tap(find.byKey(Key('increment-btn')));\n  await tester.pump();\n  expect(find.text('Count: 1'), findsOneWidget);\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content18": {
+        "content": "4. Testing with Dependencies",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content19": {
+        "content": "5. Testing CustomPaint",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content20": {
+        "content": "Golden File Testing (Visual Regression)",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content21": {
+        "content": "// Example golden file test\ntestWidgets('Matches golden file', (tester) async {\n  await tester.pumpWidget(MaterialApp(home: MyWidget())));\n  await expectLater(\n    find.byType(MyWidget),\n    matchesGoldenFile('goldens/my_widget.png')\n  );\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content22": {
+        "content": "Best Practices for Testing Custom Widgets",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content23": {
+        "content": "Isolate Your Widget\nTest Behavior, Not Implementation\nUse Keys for Reliable Finding\nDescriptive Test Names\nSmall, Focused Tests\nOrganize Your Tests\nClean Up\nConsider Edge Cases",
+        "type": "points",
+        "typeOf": "List"
+    },
+    "content24": {
+        "content": "Conclusion",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content25": {
+        "content": "Testing your custom widgets increases confidence in your codebase, reduces bugs, and makes future development smoother. Leverage widget tests and golden file testing to ensure functional and visually consistent components.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content26": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}

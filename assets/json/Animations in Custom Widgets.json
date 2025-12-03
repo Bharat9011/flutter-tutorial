@@ -1,0 +1,42 @@
+{
+    "content1": {
+        "content": "Animations in Custom Widgets",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content2": {
+        "content": "When building custom widgets (e.g., using `CustomPainter`), you can drive the drawing logic with an animation controller.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content3": {
+        "content": "1. CustomPainter with Animation",
+        "type": "sub-heading",
+        "typeOf": "Text"
+    },
+    "content4": {
+        "content": "Pass the animation to the painter and call `repaint` when the animation value changes.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content5": {
+        "content": "class MyPainter extends CustomPainter {\n  final Animation<double> animation;\n\n  MyPainter(this.animation) : super(repaint: animation);\n\n  @override\n  void paint(Canvas canvas, Size size) {\n    final paint = Paint()..color = Colors.blue.withOpacity(animation.value);\n    canvas.drawCircle(Offset.zero, 50, paint);\n  }\n\n  @override\n  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;\n}",
+        "type": "code",
+        "typeOf": "code"
+    },
+    "content6": {
+        "content": "Summary",
+        "type": "heading",
+        "typeOf": "Text"
+    },
+    "content7": {
+        "content": "This technique allows for highly custom, performant animations that aren't possible with standard widgets.",
+        "type": "paragraph",
+        "typeOf": "Text"
+    },
+    "content8": {
+        "content": "break",
+        "type": "break",
+        "typeOf": "break"
+    }
+}
