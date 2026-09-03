@@ -1,7 +1,0 @@
-
-    "comment1": "using this linke find the find the common mistake",
-    "url1": "https://chatgpt.com/c/6814f597-e7a8-800a-bb12-3d393db55774",
-
-    
-    // "comment": "using this linke find the find the folder structre and tell his generate image",
-    // "url": "https://chatgpt.com/c/6814f597-e7a8-800a-bb12-3d393db55774",
